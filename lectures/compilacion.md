@@ -4,7 +4,7 @@
 
 # Compilación en C++
 
-C++ es un lenguaje 
+C++ es un lenguaje muy complejo y diseñado para ser compilado. 
 
 # GCC
 

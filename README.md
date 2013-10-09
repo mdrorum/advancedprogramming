@@ -11,6 +11,7 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. Includes and libraries
     0. Makefiles
     0. CMake
+    0. `pkg-config`
     0. VCS. Git
     0. Advanced code editing
     0. Automatic formatting
@@ -22,6 +23,7 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. Rvalues and Lvalues
     0. Range-based for loops (at last!)
     0. RAII
+    0. Blocks and stack.
     0. Const
     0. GOTO (yes, `goto`)
     0. std::string vs. char * vs..
@@ -66,23 +68,10 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. Python and Ruby
     0. Haskell
     0. Prolog
-    0. Java and C0
+    0. Java and C#
     0. Lisp
 
 
 # Practicals
 
 This repository includes several .cpp files with code examples. The code is written in C++11.
-
-## lambda
-
-Uses of lambdas.
-
-## templates
-
-Advanced templates in C++.
-
-# References
-
-http://www.cprogramming.com/tutorial.html#advanced
-http://www.cprogramming.com/c++11/c++11-lambda-closures.html

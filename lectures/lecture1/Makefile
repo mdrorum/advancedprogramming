@@ -1,4 +1,4 @@
-OPTIONS=-std=c++11 -g
+OPTIONS=-std=c++11 -g -O2 -lstdc++ -lm
 
 SRCS=$(wildcard *.cpp)
 

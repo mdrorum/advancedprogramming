@@ -6,12 +6,16 @@
  * compile without m
  * compile with it
  * library path
+ * include path
  * write makefile: http://www.gnu.org/software/make/manual/make.html
  * write cmake: http://www.cmake.org/cmake/help/cmake_tutorial.html
  *
  * indent it (use several indentations!)
  * vim & emacs
  * ctags & etags
+ * doxygen: http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html
+ * - doxygen -g
+ * - edit doxygen file
  *
  * man
  * APIs
@@ -30,6 +34,16 @@
  * make them contribute
  *
  * make all projects be available on github
+ *
+ * practical: 
+ * - upload a project to github
+ * - must include a makefile
+ * - must include a cmake file
+ * - must be automatically indented
+ * - must be well documented
+ * - cmake + make must build everything including documentation
+ * - they must find out how to tell cmake create doxygen documentation
+ *
  */
 
 #include <iostream>
@@ -37,9 +51,14 @@
 
 using namespace std;
 
+/**
+ * PI constant
+ */
 const double PI = 3.14159265;
 
-//int main(int argc, char const *argv[])
+/**
+ * Main function
+ */
 int main() {
 
     cout << "hi, advanced programmers!" << endl;

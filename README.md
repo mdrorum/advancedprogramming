@@ -15,7 +15,6 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. VCS. Git
     0. Advanced code editing
     0. Automatic formatting
-    0. IDEs
 0. Cost and big O notation (briefly)
 0. C++ features small enough not to deserve a full module
     0. C++ standards

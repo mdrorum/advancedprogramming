@@ -15,7 +15,11 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. VCS. Git
     0. Advanced code editing
     0. Automatic formatting
-0. Cost and big O notation (briefly)
+    0. Code documentation
+0. General aspects
+    0. Cost and big O notation (briefly)
+    0. Good principles (return or not return...)
+    0. Clean code
 0. C++ features small enough not to deserve a full module
     0. C++ standards
     0. C++11
@@ -71,6 +75,3 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. Lisp
 
 
-# Practicals
-
-This repository includes several .cpp files with code examples. The code is written in C++11.

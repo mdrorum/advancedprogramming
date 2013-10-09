@@ -13,3 +13,5 @@
 *.a
 
 .ycm_extra_conf*
+.directory
+tags

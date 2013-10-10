@@ -1,5 +1,5 @@
-#OPTIONS=-std=c++11 -g -O2 -lstdc++
-OPTIONS=-std=c++11 -g -lstdc++
+#OPTIONS=-std=c++11 -g -O2
+OPTIONS=-std=c++11 -g
 
 SRCS=$(wildcard *.cpp)
 

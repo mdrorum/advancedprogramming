@@ -1,4 +1,4 @@
-# Lecture 1
+# Lecture 1 - assembling a toolset
 
 - Compiling with `gcc`
     - explain gcc
@@ -44,6 +44,7 @@
     - doxygen: http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html
     - doxygen -g
     - edit doxygen file
+    - man and APIs on the Internet
 
 
 # Exercise

@@ -1,15 +1,3 @@
-/*
- *
- *
- * man
- * APIs
- * search internet
- *
- *
- *
- *
- */
-
 #include <iostream>
 #include <cmath>
 

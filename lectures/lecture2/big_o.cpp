@@ -1,13 +1,3 @@
-/*
- * this is only a short review
- * http://en.wikipedia.org/wiki/Big_O_notation
- *
- * more to come in profiling tools
- *
- * http://bigocheatsheet.com/
- *
- * http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html
- */
 #include <iostream>
 #include <random>
 #include <vector>
@@ -109,6 +99,7 @@ int main(int argc, char const *argv[])
     //sort(list);
     sort(list.begin(), list.end());
     
+    // http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html   
     for(int i : list) {
         cout << i << endl;
     }

@@ -34,7 +34,7 @@
     - check it out
     - merge branches
     - go up and down in history
-    - make them contribute
+    - make them contribute: clone my repo and suggest a change: http://git-scm.com/book/ch5-2.html
 - Advanced code editing
     - indent it (use several indentations!)
 - Automatic formatting

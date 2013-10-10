@@ -38,6 +38,7 @@ Material for the Advanced Programming course (MSc on Computer Graphics and Simul
     0. Floating point numbers
     0. Auto and decltype
     0. Advanced inheritance. Multiple inheritance
+    0. Precompiled headers
 0. Threads
 0. Templates
     0. Advanced templates

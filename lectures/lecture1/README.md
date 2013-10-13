@@ -32,7 +32,7 @@
     - upload code
     - create a branch: checkout -b
     - rebase
-    - git remote
+    - git remote, aliases
     - pull request
     - git fetch/git pull
     - check it out

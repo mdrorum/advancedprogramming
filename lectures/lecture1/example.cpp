@@ -8,6 +8,10 @@ using namespace std;
  */
 const double PI = 3.14159265;
 
+void test() {
+    cout << "test" << endl;
+}
+
 /**
  * Main function
  */

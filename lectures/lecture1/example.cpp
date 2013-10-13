@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
 
+/**
+ * some people dislike this.
+ */
 using namespace std;
 
 /**

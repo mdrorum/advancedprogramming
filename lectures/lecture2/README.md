@@ -7,7 +7,8 @@
     - http://bigocheatsheet.com/
 - Clean code
     - DRY
-    - Refactoring
+    - return something useful from main.
+    - Refactoring: http://en.wikipedia.org/wiki/Code_refactoring
     - Document everything. Really.
     - Adhere to conding conventions: http://en.wikipedia.org/wiki/Coding_conventions
     - Make your code maintainable.
@@ -18,7 +19,9 @@
 
 # Exercise
 
-- Run and gather execution time, then draw a graph.
+- Run and gather execution time (4 or 5 samples), then draw a graph (with Calc, octave, gnuplot).
+- modify the code in github and program the comparison (take more samples).
 - upload results to your github account
 - create an account in stackoverflow
 - write a Makefile for the code.
+

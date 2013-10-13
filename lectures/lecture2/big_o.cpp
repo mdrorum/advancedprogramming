@@ -6,9 +6,45 @@
 #include <functional>
 #include <iterator>
 
+#include <sstream>
+
+// borrowed from http://anandpandia.blogspot.com.es/2012/08/quicksort-algorithm-and-example-in-c.html
+// (ask for permission!)
 using namespace std;
+void quickSort(vector<int> &input, int left, int right)  
+{  
+   int i=left, j=right;  
+   int pivot = input[(i+j)/2];  
+  
+   // partition  
+   while (i <= j) {  
+       while (input[i] < pivot)  
+           i++;  
+  
+       while (input[j] > pivot)  
+           j--;  
+  
+       if (i <= j) {  
+           int tmp = input[i];  
+           input[i] = input[j];  
+           input[j] = tmp;  
+  
+           i++;  
+           j--;  
+       }  
+   }  
+  
+   // recursion  
+   if (left < j)  
+       quickSort(input, left, j);  
+  
+   if (i < right)  
+       quickSort(input, i, right);  
+}  
 
-
+void quickSort(vector<int> &input) {
+    quickSort(input, 0, input.size() - 1); 
+}
 
 // adapted from 
 // http://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Bubble_sort#C.2B.2B
@@ -26,83 +62,51 @@ void bubbleSort(vector<int> & list)
     }
 }
 
-
-// adapted from
-// http://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Quicksort#C.2B.2B
-void quick_sort(typename vector<int>::iterator first, typename vector<int>::iterator last) {
-
-    if( first != last ) {
-        auto left  = first;
-        auto right = last;
-        auto pivot = left++;
- 
-        while( left != right ) {
-            if( *left <= *pivot ) {
-                ++left;
-            } else {
-                while( (left != right) && (*left <= *pivot) ) {
-                    --right;
-                }
-                iter_swap( left, right );
-            }
-        }
- 
-        --left;
-        iter_swap( pivot, left );
- 
-        quick_sort( first, left );
-        quick_sort( right, last );
-    }
-}
- 
-void quick_sort( vector<int> & list ) {
-    quick_sort(list.begin(), list.end());
-}
-
-
- 
-template <typename T>
-void sort(T begin, T end) {
-    if (begin != end) {
-        T middle = partition (begin, end, bind2nd(
-                    less<typename iterator_traits<T>::value_type>(), *begin));
-        sort (begin, middle);
-//        sort (max(begin + 1, middle), end);
-        T new_middle = begin;
-        sort (++new_middle, end);
-    }
-}
-
-//template <typename T>
-//void sort(vector<T> & list) {
-    //sort(list.begin(), list.end());
-//}
-
-
 int main(int argc, char const *argv[])
 {
 
-    cout << "big o notation sample" << endl;
+    if(argc < 3) {
+        cout << "I need the algorithm (bubble | quick) and the amount of random numbers to order." << endl;
+        return -1;
+    }
+    else {
+        cout << "big o notation sample" << endl;
 
-    random_device rd;
-    std::mt19937 gen(rd());
-    uniform_int_distribution<int> dis(1, 100);
+        // random the c++11 way
+        random_device rd;
+        std::mt19937 gen(rd());
+        uniform_int_distribution<int> dis(1, 100);
 
-    vector<int> list;
+        vector<int> list;
 
-    for (int n = 0; n < 4; ++n) {
-        list.push_back(dis(gen));
+
+        // atoi the c++ way
+        stringstream str;
+        str << argv[2];
+        int x;
+        str >> x;
+
+
+        for (int n = 0; n < x; ++n) {
+            list.push_back(dis(gen));
+        }
+
+        string kind(argv[1]);
+ 
+        if(kind == "bubble") {
+            bubbleSort(list);
+            cout << "using bubblesort" << endl;
+        }
+        else {
+            cout << "using quicksort" << endl;
+            quickSort(list);
+        }
+
+        // http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html   
+        for(int i : list) {
+            cout << i << endl;
+        }
+        return 0;
     }
 
-    //bubbleSort(list);
-    //quick_sort(list);
-    //sort(list);
-    sort(list.begin(), list.end());
-    
-    // http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html   
-    for(int i : list) {
-        cout << i << endl;
-    }
-
-    return 0;
 }

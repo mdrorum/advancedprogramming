@@ -30,7 +30,11 @@
     - explain git: http://git-scm.com/docs/gittutorial
     - create a github account
     - upload code
-    - create a branch
+    - create a branch: checkout -b
+    - rebase
+    - git remote
+    - pull request
+    - git fetch/git pull
     - check it out
     - merge branches
     - go up and down in history

@@ -32,7 +32,7 @@
     - upload code
     - create a branch: checkout -b
     - rebase
-    - git remote, aliases
+    - git remote, aliases: http://gitref.org/remotes/
     - pull request
     - git fetch/git pull
     - check it out

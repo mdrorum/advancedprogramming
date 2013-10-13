@@ -2,11 +2,10 @@
 
 - Compiling with `gcc`
     - explain gcc
-    - compile gcc & g++
+    - compile with gcc & g++
     - talk about compilers
     - build with optimizations
     - build with debugging symbols (check size)
-
 - Includes and libraries
     - compile without stdc++
     - compile with it
@@ -16,14 +15,17 @@
     - include path
 - Makefiles
     - write makefile: http://www.gnu.org/software/make/manual/make.html
-    - write cmake: http://www.cmake.org/cmake/help/cmake_tutorial.html
     - make -f
-- CMake
 - `pkg-config`
     - explain it
     - show examples in console
     - explain with sdl
     - explain backticks
+- CMake
+    - explain cmake
+    - cmake .
+    - make runs cmake
+    - write cmake: http://www.cmake.org/cmake/help/cmake_tutorial.html
 - VCS. Git
     - explain git: http://git-scm.com/docs/gittutorial
     - create a github account
@@ -36,14 +38,18 @@
 - Advanced code editing
     - indent it (use several indentations!)
 - Automatic formatting
-    - vim & emacs
+    - vim: http://www.interlinked.org/tutorials/vim_tutorial.html
+    - emacs: http://www.gnu.org/software/emacs/tour/
+    - editor wars:
+        - http://xkcd.com/378/
+        - http://www.funnyjunk.com/funny_pictures/2530717/The/
+        - http://unix.stackexchange.com/questions/986/vim-vs-emacs-and-no-this-is-not-a-flame-war
     - ctags & etags
 - Code documentation
     - doxygen: http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html
     - doxygen -g
     - edit doxygen file
     - man and APIs on the Internet
-
 
 # Exercise
 

@@ -22,6 +22,5 @@
 - Run and gather execution time (4 or 5 samples), then draw a graph (with Calc, octave, gnuplot).
 - modify the code in github and program the comparison (take more samples).
 - upload results to your github account
-- create an account in stackoverflow
 - write a Makefile for the code.
 

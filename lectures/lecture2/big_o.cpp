@@ -18,28 +18,28 @@ void quickSort(vector < int >&input, int left, int right)
 
     // partition  
     while (i <= j) {
-	while (input[i] < pivot)
-	    i++;
+        while (input[i] < pivot)
+            i++;
 
-	while (input[j] > pivot)
-	    j--;
+        while (input[j] > pivot)
+            j--;
 
-	if (i <= j) {
-	    int tmp = input[i];
-	    input[i] = input[j];
-	    input[j] = tmp;
+        if (i <= j) {
+            int tmp = input[i];
+            input[i] = input[j];
+            input[j] = tmp;
 
-	    i++;
-	    j--;
-	}
+            i++;
+            j--;
+        }
     }
 
     // recursion  
     if (left < j)
-	quickSort(input, left, j);
+        quickSort(input, left, j);
 
     if (i < right)
-	quickSort(input, i, right);
+        quickSort(input, i, right);
 }
 
 void quickSort(vector < int >&input)
@@ -55,11 +55,11 @@ void bubbleSort(vector < int >&list)
     auto last = list.end();
 
     for (auto i = first; i != last; i++) {
-	for (auto j = first; j < i; j++) {
-	    if (*i < *j) {
-		iter_swap(i, j);
-	    }
-	}
+        for (auto j = first; j < i; j++) {
+            if (*i < *j) {
+                iter_swap(i, j);
+            }
+        }
     }
 }
 
@@ -67,47 +67,47 @@ int main(int argc, char const *argv[])
 {
 
     if (argc < 3) {
-	cout <<
-	    "I need the algorithm (bubble | quick) and the amount of random numbers to order."
-	    << endl;
-	return -1;
+        cout <<
+            "I need the algorithm (bubble | quick) and the amount of random numbers to order."
+            << endl;
+        return -1;
     } else {
-	cout << "big o notation sample" << endl;
+        cout << "big o notation sample" << endl;
 
-	// random the c++11 way
-	random_device rd;
-	std::mt19937 gen(rd());
-	uniform_int_distribution < int >dis(1, 100);
+        // random the c++11 way
+        random_device rd;
+        std::mt19937 gen(rd());
+        uniform_int_distribution < int >dis(1, 100);
 
-	vector < int >list;
-
-
-	// atoi the c++ way
-	stringstream str;
-	str << argv[2];
-	int x;
-	str >> x;
+        vector < int >list;
 
 
-	for (int n = 0; n < x; ++n) {
-	    list.push_back(dis(gen));
-	}
+        // atoi the c++ way
+        stringstream str;
+        str << argv[2];
+        int x;
+        str >> x;
 
-	string kind(argv[1]);
 
-	if (kind == "bubble") {
-	    bubbleSort(list);
-	    cout << "using bubblesort" << endl;
-	} else {
-	    cout << "using quicksort" << endl;
-	    quickSort(list);
-	}
+        for (int n = 0; n < x; ++n) {
+            list.push_back(dis(gen));
+        }
 
-	// http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html   
-      for (int i:list) {
-	    cout << i << endl;
-	}
-	return 0;
+        string kind(argv[1]);
+
+        if (kind == "bubble") {
+            bubbleSort(list);
+            cout << "using bubblesort" << endl;
+        } else {
+            cout << "using quicksort" << endl;
+            quickSort(list);
+        }
+
+        // http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html   
+        for (int i:list) {
+            cout << i << endl;
+        }
+        return 0;
     }
 
 }

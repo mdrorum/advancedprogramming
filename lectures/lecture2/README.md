@@ -4,7 +4,10 @@
     - Introduce big-o notation: http://en.wikipedia.org/wiki/Big_O_notation
     - Explain algorithms
     - More to come in profiling tools
+    - Main term is estimating cost
     - http://bigocheatsheet.com/
+    - Asymptotically optimal algorithm and non-optimality in reality: 
+      http://en.wikipedia.org/wiki/Asymptotically_optimal_algorithm
 - Clean code
     - DRY
     - return something useful from main.

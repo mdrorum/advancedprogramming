@@ -6,3 +6,4 @@ project (lecture3)
 add_definitions(-std=c++11)
 
 add_executable(rvalues_lvalues rvalues_lvalues.cpp)
+add_executable(ranged_for ranged_for.cpp)

@@ -34,5 +34,5 @@
 - modify the code in github and program the comparison (take more samples).
 - upload results to your github account
 - write a Makefile for the code.
-- Create the loops that the exercise doesn't implement
+- Create the loops that the exercises (loop_exercises.cpp) don't implement
 - Transform loops in the exercise to ranged loops

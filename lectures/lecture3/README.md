@@ -10,3 +10,5 @@
 
 # Exercise
 
+- write a RAIIFile wrapper class that closes the file when the object is destroyed.
+- check that it works even with exceptions

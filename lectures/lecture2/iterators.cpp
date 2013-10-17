@@ -44,7 +44,7 @@ int main()
         *it += 100;
     }
 
-    // Yeah, I'm not DRYing here... =$
+    // Yeah, I'm DRYing here... =$
     for(std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++) {
         std::cout << *it << std::endl;
     }

@@ -17,7 +17,7 @@ private:
     int mValue;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     Test t1(6);
     {

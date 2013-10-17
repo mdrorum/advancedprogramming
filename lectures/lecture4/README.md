@@ -1,6 +1,5 @@
 
-# Lecture 4 - C++: RAII
+# Lecture 4 - C++ (III)
 
-- RAII
 
 # Exercise

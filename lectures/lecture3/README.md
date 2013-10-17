@@ -1,10 +1,8 @@
-# Lecture 3 - C++
+# Lecture 3 - C++ (II)
 
-- C++ standards: http://isocpp.org/
-- C++11: http://en.wikipedia.org/wiki/C++11
-- Rvalues and Lvalues
-- Range-based for loops (at last!)
-    - show ranged vector
-    - show ranged map (returns a std::pair)
+- C++ (II)
+    - Rvalues and lvalues
+
 
 # Exercise
+

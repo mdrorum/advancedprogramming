@@ -6,3 +6,5 @@ project (lecture2)
 add_definitions(-std=c++11)
 
 add_executable(big_o big_o.cpp)
+add_executable(ranged_for ranged_for.cpp)
+add_executable(iterators iterators.cpp)

@@ -12,7 +12,7 @@ int main()
     // see how blocks create and destroy the object. the file is closed
     // when the resource is deallocated
     
-    //{
+    {
     std::fstream file("test.txt");
 
     ptr_file = &file;
@@ -22,8 +22,9 @@ int main()
     file >> str;
 
     std::cout << str << std::endl;
-    //}
+    }
 
+    // this will fail!!!!! DANGER!!!!!
     std::cout << ptr_file->is_open() << std::endl;
 
     //------------------------------------------------------------

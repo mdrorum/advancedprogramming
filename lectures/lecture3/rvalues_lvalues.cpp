@@ -94,8 +94,14 @@ private:
 
 int main()
 {
+    // how to check identity
+    int v = 5;
+    int & v2 = v;
+    std::cout << reinterpret_cast<const void*>( & v ) << std::endl;
+    std::cout << reinterpret_cast<const void*>( & v2 ) << std::endl;
+
     std::cout << "original x = " << x << std::endl;
-    getX() = 5;
+    getX() = 7;
     std::cout << "original x = " << x << std::endl;
 
     getXPointer();
@@ -114,6 +120,7 @@ int main()
     std::map<int, float> mymap;
     mymap[10] = 5.6;
 
+
     // from: http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html
     //The intuition here is that you cannot use a "mutable" reference because, if you did, you'd be
     //able to modify some object that is about to disappear, and that would be dangerous. Notice, by
@@ -126,6 +133,8 @@ int main()
     //string& name = getName(); // NOT ok
     //
     std::string&& name_11 = getName(); // ok
+
+
 
     return 0;
 }

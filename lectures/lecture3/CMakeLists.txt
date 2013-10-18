@@ -7,3 +7,4 @@ add_definitions(-std=c++11)
 
 add_executable(rvalues_lvalues rvalues_lvalues.cpp)
 add_executable(raii raii.cpp)
+add_executable(raii_exceptions raii_exceptions.cpp)

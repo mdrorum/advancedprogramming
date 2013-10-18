@@ -6,9 +6,14 @@
         - * gets a r-value and yields a l-value
         - & gets a l-value and yields a r-value
     - RAII: http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization
+        - move semantics
 
 
 # Exercise
 
-- write a RAIIFile wrapper class that closes the file when the object is destroyed.
-- check that it works even with exceptions
+- write a class that auto deletes a pointer created previously. The class gets a pointer as 
+  parameter and cleans everything up when it gets destroyed.
+- use the class with RAII and check that it works without leaks.
+- write a class that implements a move constructor with std::move. The class must have one single 
+  attribute, a std::string. Use reinterpret_cast<const void*> to check that the object is not being
+  copied but rather moved.

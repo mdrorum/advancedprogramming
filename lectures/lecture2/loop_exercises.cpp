@@ -18,6 +18,8 @@ int main()
     // 3. create a for loop that gets a map of <string, float> and updates the
     // same map so that it adds "yeah!" to each string and rounds the float
     // number. transform it in place.
+    // You can't modify the key, therefore new key-value pairs must be inserted
+    // and the old ones deleted.
       
       
     //----------------------------------------------------------------------

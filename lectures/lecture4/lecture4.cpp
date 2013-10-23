@@ -74,7 +74,6 @@ int main() {
     r++;
 
     // variable pointer to constant integer
-
     const int * p = &a;
     //*p = 6; // fails, can't modify *p. the value is constant
     p++; // the pointer is variable
@@ -82,7 +81,6 @@ int main() {
     int const * q = &a;
     //*q = 6; // fails, can't modify *p
     q++;
-
 
 
     int * const s = &a; // constant pointer to a variable integer and
@@ -101,6 +99,13 @@ int main() {
     //j[0] = 'j'; // can't do this!
 
 
+    int ar = 4;
+    const int & br = ar;
+    //br = 6; // nope
+    
+    //int & const cannotBeDone = ar; // constant pointer to a variable integer and
+
+    // parameters and const references
     say_something_1("one");
     say_something_1("two");
     say_something_1("three");

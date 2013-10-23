@@ -2,8 +2,6 @@
 # Lecture 4 - C++ (III)
 
 - C++ (III)
-    - std::string
-    - char *
     - Unicode
     - Namespaces
     - static

@@ -1,4 +1,3 @@
-
 # Lecture 4 - C++ (III)
 
 - C++ (III)
@@ -28,6 +27,4 @@
         - const cast
         - const is not an efficiency booster
         - "mutable" keyword
-
-# Exercise
 

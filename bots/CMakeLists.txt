@@ -5,6 +5,7 @@ project (bots)
 Find_Package ( SDL REQUIRED )
 
 
+add_definitions(-std=c++11)
 
 include_directories(${SDL_INCLUDE_DIR})
 

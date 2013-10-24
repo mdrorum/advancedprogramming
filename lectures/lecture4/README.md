@@ -3,6 +3,9 @@
 
 - C++ (III)
     - Unicode
+        - http://en.wikipedia.org/wiki/Unicode
+        - http://www.joelonsoftware.com/articles/Unicode.html
+        - wchar_t and wstring
     - Namespaces
         - declaring namespaces
         - using namespaces and explicit variables

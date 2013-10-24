@@ -8,3 +8,5 @@ add_definitions(-std=c++11)
 add_executable(const const.cpp)
 add_executable(namespaces namespaces.cpp)
 add_executable(unicode unicode.cpp)
+add_executable(static static.cpp static_header.cpp)
+

@@ -4,7 +4,16 @@
 - C++ (III)
     - Unicode
     - Namespaces
+        - declaring namespaces
+        - using namespaces and explicit variables
+        - namespaces aliases
+        - blocks and namespaces
+        - using several namespaces
     - static
+        - global but scoped
+        - class methods and attributes
+        - initialization
+        - C static
     - const: http://duramecho.com/ComputerInformation/WhyHowCppConst.html, 
       http://www.cprogramming.com/tutorial/const_correctness.html
         - constants

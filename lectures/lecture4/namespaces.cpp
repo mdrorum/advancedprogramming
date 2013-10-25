@@ -12,12 +12,22 @@ namespace space {
 }
 
 namespace spazio {
+    namespace il_mio_spazio {
+        int j;
+    }
+
     int a;
     int b;
 }
 
+
+
 namespace espace {
     int b;
+}
+
+namespace espace {
+    int z;
 }
 
 
@@ -26,6 +36,9 @@ namespace frontier = space;
 namespace frontier2 = space;
 
 int main() {
+
+    spazio::il_mio_spazio::j = 5;
+
 
     {
         using namespace spazio;

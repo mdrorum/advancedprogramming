@@ -11,6 +11,7 @@
         - namespaces aliases
         - blocks and namespaces
         - using several namespaces
+        - nested namespaces
     - static
         - global but scoped
         - class methods and attributes

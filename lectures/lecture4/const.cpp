@@ -94,7 +94,7 @@ int main() {
 
     char * b = broken();
     //b[0] = 'j'; ////////////////// TRY THIS!!!!
-    
+
     const char * j = safe();
     //j[0] = 'j'; // can't do this!
 
@@ -102,13 +102,13 @@ int main() {
     int ar = 4;
     const int & br = ar;
     //br = 6; // nope
-    
+
     //int & const cannotBeDone = ar; // constant pointer to a variable integer and
 
     // parameters and const references
     say_something_1("one");
-    say_something_1("two");
-    say_something_1("three");
+    say_something_2("two"); // const problems!
+    say_something_3("three");
 
 
     ConstClass c(3);

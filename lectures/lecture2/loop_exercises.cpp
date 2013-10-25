@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 // http://jessicarbrown.com/images/ft-cpp-loop.gif
 int main()
@@ -15,7 +16,7 @@ int main()
     // 3. create a for loop that gets a map of <string, float> and returns a
     // new map of of (char*, int)
     
-    // 3. create a for loop that gets a map of <string, float> and updates the
+    // 4. create a for loop that gets a map of <string, float> and updates the
     // same map so that it adds "yeah!" to each string and rounds the float
     // number. transform it in place.
     // You can't modify the key, therefore new key-value pairs must be inserted
@@ -24,10 +25,11 @@ int main()
       
     //----------------------------------------------------------------------
         
-    // 4. transform every previous exercise to ranged for loops. use as much
+    // 5. transform exercises 1, 2 and 3 to ranged for loops. use as much
     // c++11 syntax as you can
+
     
-    // 5. write a for loop that prints a pyramid of height N, like this:    
+    // 6. write a for loop that prints a pyramid of height N, like this:    
     //	
     //	               **
     //	              ****

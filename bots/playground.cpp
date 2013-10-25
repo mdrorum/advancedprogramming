@@ -3,7 +3,9 @@
 
 int main()
 {
-    Bots bots = Bots(100, 100);
+    bots bots(100, 100);
+
+    bots.generate(2, 5);
 
 
     /* initialize SDL */
@@ -25,7 +27,7 @@ int main()
 
         Uint32 current_time = SDL_GetTicks();
 
-        bots.Step(current_time - previous_time);
+        bots.step(current_time - previous_time);
 
         previous_time = current_time;
 

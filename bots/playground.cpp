@@ -1,12 +1,18 @@
 #include "bots.h"
 #include <SDL.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
 
 int main()
 {
-    bots bots(100, 100);
+
+    const int width = 100;
+    const int height = 100;
+
+
+    bots bots(width, height);
 
     bots.generate(2, 5);
-
 
     /* initialize SDL */
     SDL_Init(SDL_INIT_VIDEO);
@@ -14,13 +20,29 @@ int main()
     /* set the title bar */
     SDL_WM_SetCaption("Bots", "Bots");
 
+    const int win_width = 500;
+    const int win_height = 500;
+
     /* create window */
-    SDL_Surface* screen = SDL_SetVideoMode(500, 500, 0, 0);
+    SDL_Surface* screen = SDL_SetVideoMode(win_width, win_height, 0, SDL_OPENGL);
 
     SDL_Event event;
-    bool gameover = 0;
+    bool gameover = false;
 
     Uint32 previous_time = SDL_GetTicks();
+
+    std::function<void(void)> team_color [] = {
+        []() {glColor3f(1.0f, 0.0f, 0.0);},
+        []() {glColor3f(0.0f, 1.0f, 0.0);},
+        []() {glColor3f(0.0f, 0.0f, 1.0);},
+    };
+
+
+    glViewport(0, 0, win_width, win_height);
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity( );               
+    gluOrtho2D(0, width, 0, height);
+
     /* message pump */
     while (!gameover)
     {
@@ -51,8 +73,32 @@ int main()
             }
         }
 
-        /* update the screen */
-        SDL_UpdateRect(screen, 0, 0, 0, 0);
+
+
+
+
+        glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+        glMatrixMode( GL_MODELVIEW );
+        glLoadIdentity();
+        bots.for_each_bot([&team_color] (bots::team_id team, const bots::position & pos, std::shared_ptr<bot> const the_bot) {
+                team_color[team]();
+
+                glPushMatrix();
+
+                glTranslatef(pos.first, pos.second, 0);
+
+                glBegin( GL_QUADS );
+                glVertex3f(0.0f, 0.0f, 0.0f);
+                glVertex3f(1.0f, 0.0f, 0.0f);
+                glVertex3f(1.0f, 1.0f, 0.0f);
+                glVertex3f(0.0f, 1.0f, 0.0f);
+                glEnd();
+
+                glPopMatrix();
+                });
+
+        SDL_GL_SwapBuffers( );
     }
 
     /* cleanup SDL */

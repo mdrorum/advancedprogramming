@@ -1,3 +1,23 @@
+/bots/bots
+/bots/bots.config
+/bots/bots.creator
+/bots/bots.creator.user
+/bots/bots.files
+/bots/bots.includes
+/lectures/lecture1/example
+/lectures/lecture1/sdlexample
+/lectures/lecture2/big_o
+/lectures/lecture2/iterators
+/lectures/lecture2/loop
+/lectures/lecture2/ranged_for
+/lectures/lecture3/raii
+/lectures/lecture3/raii_exceptions
+/lectures/lecture3/rvalues_lvalues
+/lectures/lecture4/const
+/lectures/lecture4/lecture4
+/lectures/lecture4/namespaces
+/lectures/lecture4/static
+/lectures/lecture4/unicode
 # Compiled Object files
 *.slo
 *.lo

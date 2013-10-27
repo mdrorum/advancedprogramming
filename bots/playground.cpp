@@ -81,11 +81,14 @@ int main()
 
         glMatrixMode( GL_MODELVIEW );
         glLoadIdentity();
-        bots.for_each_bot([&team_color] (bots::team_id team, const bots::position & pos, std::shared_ptr<bot> const the_bot) {
-                team_color[team]();
+        //bots.for_each_bot([&team_color] (const bot::position & pos, std::shared_ptr<bot> const the_bot) {
+        bots.for_each_bot([&team_color] (const bot & the_bot) {
+                team_color[the_bot.get_team()]();
 
                 glPushMatrix();
 
+                const bot::position & pos = the_bot.get_position();
+                //std::cout << pos.first << std::endl;
                 glTranslatef(pos.first, pos.second, 0);
 
                 glBegin( GL_QUADS );

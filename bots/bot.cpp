@@ -1,6 +1,7 @@
 #include "bot.h"
 
-bot::bot (bot_id id) : mId(id), mBaseAttack(2), mBaseDefense(1), mExperience(0), mEnergy(100) {}
+// add a move constructor
+bot::bot (team_id team, const position & pos) : _position(pos), _team(team), _base_attack(2), _base_defense(1), _experience(0), _energy(100) {}
 
 bot::~bot () {}
 

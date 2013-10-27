@@ -83,7 +83,7 @@ void bots::perform_action(bot & the_bot) {
             break;
         case action::ATTACK:
             break;
-        case action::NOTHING;
+        case action::NOTHING:
             break;
     }
 }

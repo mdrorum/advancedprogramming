@@ -21,7 +21,7 @@ class action {
             return _direction;
         }
 
-        action() : _kind(NOTHING) {}
+        action() : _kind(NOTHING), _direction(N) {}
 
         inline void attack(const direction & dir) {
             _kind = ATTACK;

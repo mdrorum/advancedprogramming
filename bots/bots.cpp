@@ -22,14 +22,14 @@ void bots::generate(size_t number_teams, size_t bots_per_team) throw (too_many_b
 
         for(size_t j = 0; j < bots_per_team; j++) {
 
-            bot::field_size x;
-            bot::field_size y;
+            // reasonably efficient for sparse distributions
+            std::pair<int, int> position;
             do {
-                x = random_width(gen);
-                y = random_height(gen2);
-            } while(!empty({x, y}));
+                position.first = random_width(gen);
+                position.second = random_height(gen2);
+            } while(!empty(position));
 
-            create_bot({x, y}, i);
+            create_bot(position, i);
 
         }
 
@@ -39,7 +39,7 @@ void bots::generate(size_t number_teams, size_t bots_per_team) throw (too_many_b
 bots::~bots () {}
 
 
-const bot * const bots::find_at(const bot::position & pos) const {
+const bot * bots::find_at(const bot::position & pos) const {
     auto it = std::find_if(_bots.begin(), _bots.end(), 
             [&pos](const bot & bot){
             return bot.get_position() == pos;
@@ -58,47 +58,54 @@ bool bots::empty(const bot::position & pos) const {
     return find_at(pos) == nullptr;
 }
 
+// FIXME: try not to copy here!!
 bool bots::can_move(const bot & the_bot, const direction & dir) const {
+    bot copy_bot(the_bot);
+    copy_bot.move(dir);
     return true;
 }
 
-//void bots::move(const bot::position & pos, const direction & dir) {
+bool bots::can_attack(const bot & the_bot, const direction & dir) const {
+    return true;
+}
 
-//// this isn't a good idea
-//// redefine it all
-//_bots.erase(pos)
+// replace switch by something w/out comparisons!
+void bots::perform_action(bot & the_bot) {
+    int x_offset[] = {0, 1, 1, 1, 0, -1, -1, -1};
+    int y_offset[] = {1, 1, 0, -1, -1, -1, 0, 1};
+    const action & action = the_bot.get_next_action();
+    direction dir = action.get_direction();
+    bot::position & pos = the_bot._position;
+    switch(action.get_kind()) {
+        case action::MOVE:
+            pos.first += x_offset[dir];
+            pos.second += y_offset[dir];
+            break;
+        case action::ATTACK:
+            break;
+        case action::NOTHING;
+            break;
+    }
+}
 
+void bots::move(bot & the_bot, const direction & dir) {
+    the_bot.move(dir);
+}
 
-//}
-
-void bots::attack(const bot & the_bot, const direction & dir) {}
+void bots::attack(bot & the_bot, const direction & dir) {
+    the_bot.attack(dir);
+}
 
 void bots::step(int time) {
     static int acc_time = 0;
     acc_time += time;
-    if(acc_time % 1000 == 0) {
-        for_each_bot([this] ( const bot & the_bot ) {
-                if(can_move(the_bot, S)) {
-                    move(the_bot, S);
-                }
-                });
+    if(acc_time > 1000) {
+        for_each_bot([this] ( bot & the_bot ) {
+                perform_action(the_bot);
+        });
         acc_time = 0;
     }
 
 }
 
-
-// move!
-//inline const team & get_team(team_id the_team) const {
-//return mMap.at(the_team); // at is const, [] isn't
-
-//}
-
-
-//void bots::for_each_bot(std::function<void(const bot::position& pos, std::shared_ptr<bot> const)> fun) {
-void bots::for_each_bot(std::function<void(const bot& the_bot)> fun) {
-    for(auto bot : _bots) {
-        fun(bot);
-    }
-}
 

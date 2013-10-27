@@ -88,7 +88,6 @@ int main()
                 glPushMatrix();
 
                 const bot::position & pos = the_bot.get_position();
-                //std::cout << pos.first << std::endl;
                 glTranslatef(pos.first, pos.second, 0);
 
                 glBegin( GL_QUADS );

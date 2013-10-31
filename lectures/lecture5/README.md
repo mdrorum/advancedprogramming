@@ -14,7 +14,11 @@
     - Advanced inheritance
         - virtual, override, final: http://en.wikipedia.org/wiki/C++11#Explicit_overrides_and_final
             - when virtual is needed
-        - delete constructors
+        - delete and default constructors and destructor: http://en.cppreference.com/w/cpp/language/destructor
+            - You can generate default elements explicitly
+            - `default` when other constructors are created so that the compiler creates the default 
+              one
+            - `delete` when you _don't want_ the constructor or the destructor.
         - public/private/protected inheritance
             - http://stackoverflow.com/questions/860339/difference-between-private-public-and-protected-inheritance-in-c
         - must know this:

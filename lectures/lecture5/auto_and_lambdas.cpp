@@ -25,7 +25,12 @@ void lambdas() {
     lambda("woahhh!");
 }
 
-auto subtract(int x, int y) -> int {
+
+int x = 10;
+int y = 6;
+
+// one of the typical uses of decltype (more useful in classes...)
+auto subtract() -> decltype(x){
     return x - y;
 }
 
@@ -45,6 +50,10 @@ void auto_and_decltype() {
     decltype(a) c = 6;
 
     std::cout << "decltype is good: " << c << std::endl;
+
+    // decltype can be used for functions with the new syntax when the type can't be known a priori
+    // www.cprogramming.com/c++11/c++11-auto-decltype-return-value-after-function.html
+    std::cout << "subtract returns: " << subtract() << std::endl;
 }
 
 void closures() {

@@ -26,6 +26,8 @@ private:
         _bots.push_back(std::move(new_bot));
     }
 
+    bot * would_attack(const bot & the_bot, const direction &dir) const;
+
     void perform_action(bot & the_bot);
 
     bot::field_size _width;

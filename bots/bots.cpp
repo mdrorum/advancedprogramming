@@ -60,8 +60,9 @@ bool bots::empty(const bot::position & pos) const {
 
 // FIXME: try not to copy here!!
 bool bots::can_move(const bot & the_bot, const direction & dir) const {
-    bot copy_bot(the_bot);
-    copy_bot.move(dir);
+    // I have to _perform_ the movement
+    //bot copy_bot(the_bot);
+    //copy_bot.move(dir);
     return true;
 }
 
@@ -74,8 +75,23 @@ void bots::perform_action(bot & the_bot) {
     const direction & dir = the_bot.get_next_direction();
 
     // TODO check attacks and act!
-    pos.first += x_offset[dir];
-    pos.second += y_offset[dir];
+    if(bot * victim = would_attack(the_bot, dir)) {
+        victim->_energy = std::min(0,
+                victim->_energy - std::min(0, 
+                    the_bot.get_base_attack() - victim->get_base_defense()));
+
+    }
+    else if (can_move(the_bot, dir)) {
+
+        pos.first += x_offset[dir];
+        pos.second += y_offset[dir];
+    }
+}
+
+
+bot * bots::would_attack(const bot & the_bot, const direction &dir) const {
+    
+    return nullptr;
 }
 
 void bots::move(bot & the_bot, const direction & dir) {
@@ -87,12 +103,22 @@ void bots::step(int time) {
     static int acc_time = 0;
     acc_time += time;
     if(acc_time > 1000) {
+        // acting and dying in the same loop changes the semantics
+        // currently, a bot can be dead but kill and move during the current
+        // turn
         for_each_bot([this] ( bot & the_bot ) {
                 perform_action(the_bot);
         });
+
+        // remove dead bots
+        for(auto it = _bots.begin(); it != _bots.end(); it++) {
+            if((*it).get_energy() <= 0) {
+                _bots.erase(it);
+            }
+        }
+
         acc_time = 0;
     }
 
 }
-
 

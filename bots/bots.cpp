@@ -65,37 +65,24 @@ bool bots::can_move(const bot & the_bot, const direction & dir) const {
     return true;
 }
 
-bool bots::can_attack(const bot & the_bot, const direction & dir) const {
-    return true;
-}
-
 // replace switch by something w/out comparisons!
 void bots::perform_action(bot & the_bot) {
-    int x_offset[] = {0, 1, 1, 1, 0, -1, -1, -1};
-    int y_offset[] = {1, 1, 0, -1, -1, -1, 0, 1};
-    const action & action = the_bot.get_next_action();
-    direction dir = action.get_direction();
+    int x_offset[] = {0, 0, 1, 1, 1, 0, -1, -1, -1};
+    int y_offset[] = {0, 1, 1, 0, -1, -1, -1, 0, 1};
+
     bot::position & pos = the_bot._position;
-    switch(action.get_kind()) {
-        case action::MOVE:
-            pos.first += x_offset[dir];
-            pos.second += y_offset[dir];
-            break;
-        case action::ATTACK:
-            break;
-        case action::NOTHING:
-            break;
-    }
+    const direction & dir = the_bot.get_next_direction();
+
+    // TODO check attacks and act!
+    pos.first += x_offset[dir];
+    pos.second += y_offset[dir];
 }
 
 void bots::move(bot & the_bot, const direction & dir) {
     the_bot.move(dir);
 }
 
-void bots::attack(bot & the_bot, const direction & dir) {
-    the_bot.attack(dir);
-}
-
+// FIXME test implementation, doesn't have any sense at all
 void bots::step(int time) {
     static int acc_time = 0;
     acc_time += time;

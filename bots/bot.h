@@ -5,44 +5,12 @@
 
 class bots;
 
-enum direction { N, NE, E, SE, S, SW, W, NW };
+enum direction { NOTHING, N, NE, E, SE, S, SW, W, NW };
 
-
-// union or "either" can be used here
-class action {
-    public:
-        enum kind { MOVE, ATTACK, NOTHING };
-
-        inline kind get_kind() const {
-            return _kind;
-        }
-
-        inline direction get_direction() const {
-            return _direction;
-        }
-
-        action() : _kind(NOTHING), _direction(N) {}
-
-        inline void attack(const direction & dir) {
-            _kind = ATTACK;
-            set_direction(dir);
-        }
-
-        inline void move(const direction & dir) {
-            _kind = MOVE;
-            set_direction(dir);
-        }
-
-        inline void set_direction(const direction & dir) {
-            _direction = dir;
-        }
-
-    private:
-        kind _kind;
-        direction _direction;
-
-};
-
+/**
+ * Non-const methods are private and container class is declared as a friend.
+ * This enforces a very strict encapsulation pattern.
+ */
 class bot
 {
     public:
@@ -83,8 +51,8 @@ class bot
             return _position;
         }
 
-        inline const action & get_next_action() const {
-            return _next_action;
+        inline const direction & get_next_direction() const {
+            return _next_direction;
         }
 
     private:
@@ -97,15 +65,13 @@ class bot
         status _energy;
         team_id _team;
         position _position;
-        action _next_action;
+        direction _next_direction;
 
-
-        inline void attack(const direction & dir) {
-            _next_action.attack(dir);
-        }
-
+        /**
+         * this enforces modification of the data structure through container class
+         */
         inline void move(const direction & dir) {
-            _next_action.move(dir);
+            _next_direction = dir;
         }
 };
 

@@ -26,3 +26,10 @@
             - multiple inheritance
                 - the diamond problem: http://en.wikipedia.org/wiki/Diamond_problem#The_diamond_problem
 
+
+- Exercise
+    - Start your project and create the OO design
+        - Design your clases and add default constructors explicitly
+        - Create virtual methods and include `override` in every overriding method
+    - use `auto` as much as you can. use `decltype` only when you need it.
+    - use lambdas. Try to use `for_each` from `std::` and use lambas there.

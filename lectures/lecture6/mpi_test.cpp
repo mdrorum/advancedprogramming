@@ -1,6 +1,7 @@
 #include <mpi.h>
 #include <iostream>
 
+// mpirun -np 2 mpi_test
 int main(int argc, char* argv[])
 {
     MPI_Init(&argc, &argv);

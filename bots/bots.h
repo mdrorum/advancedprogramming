@@ -10,23 +10,20 @@
 #include "bot.h"
 
 
-class bots
-{
+class bots {
 
 
-private:
+  private:
 
-    typedef std::vector <bot> field_bots;
+    typedef std::vector < bot > field_bots;
 
     /**
      * beware, there is no emptiness checking!
      */
     inline void create_bot(bot::position position, bot::team_id team) {
-        bot new_bot(team, position);
-        _bots.push_back(std::move(new_bot));
-    }
-
-    bot * would_attack(const bot & the_bot, const direction &dir) const;
+	bot new_bot(team, position);
+	 _bots.push_back(std::move(new_bot));
+    } bot *would_attack(const bot & the_bot, const direction & dir) const;
 
     void perform_action(bot & the_bot);
 
@@ -34,17 +31,19 @@ private:
     bot::field_size _height;
     field_bots _bots;
 
-public:
+  public:
 
-    class too_many_bots : std::exception {};
+  class too_many_bots:std::exception {
+    };
 
-    bots (bot::field_size width, bot::field_size height);
+    bots(bot::field_size width, bot::field_size height);
 
-    virtual ~bots ();
+    virtual ~ bots();
 
-    void generate(size_t number_teams, size_t bots_per_team) throw (too_many_bots);
+    void generate(size_t number_teams,
+		  size_t bots_per_team) throw(too_many_bots);
 
-    const bot * find_at(const bot::position & p) const;
+    const bot *find_at(const bot::position & p) const;
 
     bool empty(const bot::position & p) const;
 
@@ -58,8 +57,8 @@ public:
 
     void step(int time);
 
-    inline void for_each_bot(std::function<void(bot & the_bot)> fun) {
-        for_each(_bots.begin(), _bots.end(), fun);
+    inline void for_each_bot(std::function < void (bot & the_bot) > fun) {
+	for_each(_bots.begin(), _bots.end(), fun);
     }
 };
 

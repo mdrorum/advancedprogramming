@@ -5,14 +5,19 @@ project (lecture6)
 # remember to enable c++11!!!
 add_definitions(-std=c++11)
 
+add_executable(sockets sockets.cpp)
+
 add_executable(threads threads.cpp)
 
 # threading requires a library
 target_link_libraries(threads pthread)
 
-find_package(MPI REQUIRED)
 
 # doesn't break anything, it actually uses g++...
+# but it could break something, this compiler SHOULDN'T be used to compile
+# `threads.cpp`
 SET(CMAKE_CXX_COMPILER mpicxx)
+
+find_package(MPI REQUIRED)
 add_executable(mpi_test mpi_test.cpp)
 target_link_libraries(mpi_test mpi)

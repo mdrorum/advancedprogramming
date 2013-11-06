@@ -16,6 +16,7 @@
     - try boost::asio
     - explain adding modules to Cmake
     - example with enet
+    - many libraries can be used, enet is special
 
 
 # Exercises

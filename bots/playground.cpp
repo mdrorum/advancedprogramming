@@ -33,13 +33,10 @@ int main()
     Uint32 previous_time = SDL_GetTicks();
 
     std::function < void (void) > team_color[] = {
-	[]() {
-	    glColor3f(1.0f, 0.0f, 0.0);
-	},[]() {
-	    glColor3f(0.0f, 1.0f, 0.0);
-	},[]() {
-	    glColor3f(0.0f, 0.0f, 1.0);
-    },};
+        []() { glColor3f(1.0f, 0.0f, 0.0); },
+        []() { glColor3f(0.0f, 1.0f, 0.0); },
+        []() { glColor3f(0.0f, 0.0f, 1.0); },
+    };
 
 
     glViewport(0, 0, win_width, win_height);
@@ -76,27 +73,38 @@ int main()
 	    }
 	}
 
-
-
-
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	//bots.for_each_bot([&team_color] (const bot::position & pos, std::shared_ptr<bot> const the_bot) {
+
+
+    /////////////////////////////////////////
 	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
-			  bots.move(the_bot, S);
+            bots.move(the_bot, S);
+    });
+    /////////////////////////////////////////
+
+	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
+            
+
 			  team_color[the_bot.get_team()]();
+
 			  glPushMatrix();
-			  const bot::position & pos =
-			  the_bot.get_position();
-			  glTranslatef(pos.first, pos.second, 0);
-			  glBegin(GL_QUADS); glVertex3f(0.0f, 0.0f, 0.0f);
-			  glVertex3f(1.0f, 0.0f, 0.0f);
-			  glVertex3f(1.0f, 1.0f, 0.0f);
-			  glVertex3f(0.0f, 1.0f, 0.0f); glEnd();
-			  glPopMatrix();});
+                  const bot::position & pos = the_bot.get_position();
+
+                  glTranslatef(pos.first, pos.second, 0);
+
+                  glBegin(GL_QUADS); 
+                      glVertex3f(0.0f, 0.0f, 0.0f);
+                      glVertex3f(1.0f, 0.0f, 0.0f);
+                      glVertex3f(1.0f, 1.0f, 0.0f);
+                      glVertex3f(0.0f, 1.0f, 0.0f); 
+                  glEnd();
+
+			  glPopMatrix();
+              }
+              );
 
 	SDL_GL_SwapBuffers();
     }

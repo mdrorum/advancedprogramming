@@ -40,8 +40,10 @@ class bots {
 
     virtual ~ bots();
 
-    void generate(size_t number_teams,
-		  size_t bots_per_team) throw(too_many_bots);
+    /**
+     * generates bots. this is actually the only way to populate the playground.
+     */
+    void generate(size_t number_teams, size_t bots_per_team) throw(too_many_bots);
 
     const bot *find_at(const bot::position & p) const;
 

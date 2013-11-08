@@ -13,12 +13,8 @@ void bots::generate(size_t number_teams,
     std::random_device rd;
     std::mt19937 gen(rd());
     std::mt19937 gen2(rd());
-    std::uniform_int_distribution < bot::field_size > random_width(0,
-            _width -
-            1);
-    std::uniform_int_distribution < bot::field_size > random_height(0,
-            _height
-            - 1);
+    std::uniform_int_distribution < bot::field_size > random_width(0, _width - 1);
+    std::uniform_int_distribution < bot::field_size > random_height(0, _height - 1);
 
     if (number_teams * bots_per_team > _width * _height) {
         throw new too_many_bots;
@@ -87,13 +83,9 @@ void bots::perform_action(bot & the_bot)
 
     // TODO check attacks and act!
     if (bot * victim = would_attack(the_bot, dir)) {
-        victim->_energy = std::min(0, victim->_energy - std::min(0,
-                    the_bot.
-                    get_base_attack
-                    () -
-                    victim->
-                    get_base_defense
-                    ()));
+        victim->_energy = std::min(0, 
+                victim->_energy - std::min(0, 
+                    the_bot.get_base_attack () - victim-> get_base_defense ()));
 
     } else if (can_move(the_bot, dir)) {
 

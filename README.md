@@ -1,4 +1,6 @@
 Advanced Programming
 ====================
 
-Material for the Advanced Programming course (MSc on Computer Graphics and Simulation at U-tad). 
+Advanced Programming -- Lecture notes and exercises. 
+
+Adapted for the MSc on Computer Graphics and Simulation.

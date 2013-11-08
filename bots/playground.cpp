@@ -80,9 +80,11 @@ int main()
 
 
     /////////////////////////////////////////
+
 	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
-            bots.move(the_bot, S);
+            the_bot.try_to_do(S);
     });
+
     /////////////////////////////////////////
 
 	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {

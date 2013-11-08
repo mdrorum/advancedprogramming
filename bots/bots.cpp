@@ -82,7 +82,7 @@ void bots::perform_action(bot & the_bot)
     const direction & dir = the_bot.get_next_direction();
 
     // TODO check attacks and act!
-    if (bot * victim = would_attack(the_bot, dir)) {
+    if (bot * victim = can_attack(the_bot, dir)) {
         victim->_energy = std::min(0, 
                 victim->_energy - std::min(0, 
                     the_bot.get_base_attack () - victim-> get_base_defense ()));
@@ -95,16 +95,16 @@ void bots::perform_action(bot & the_bot)
 }
 
 
-bot *bots::would_attack(const bot & the_bot, const direction & dir) const 
+bot *bots::can_attack(const bot & the_bot, const direction & dir) const 
 {
 
     return nullptr;
 }
 
-void bots::move(bot & the_bot, const direction & dir)
-{
-    the_bot.move(dir);
-}
+//void bots::move(bot & the_bot, const direction & dir)
+//{
+    //the_bot.move(dir);
+//}
 
 // FIXME test implementation, doesn't have any sense at all
 void bots::step(int time)

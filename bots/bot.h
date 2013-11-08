@@ -55,6 +55,11 @@ class bot
             return _next_direction;
         }
 
+
+        inline void try_to_do(const direction & dir) {
+            _next_direction = dir;
+        }
+
     private:
 
         friend class bots;
@@ -70,9 +75,9 @@ class bot
         /**
          * this enforces modification of the data structure through container class
          */
-        inline void move(const direction & dir) {
-            _next_direction = dir;
-        }
+        //inline void move(const direction & dir) {
+            //_next_direction = dir;
+        //}
 };
 
 #endif

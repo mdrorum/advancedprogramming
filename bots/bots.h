@@ -21,9 +21,11 @@ class bots {
      * beware, there is no emptiness checking!
      */
     inline void create_bot(bot::position position, bot::team_id team) {
-	bot new_bot(team, position);
-	 _bots.push_back(std::move(new_bot));
-    } bot *would_attack(const bot & the_bot, const direction & dir) const;
+        // fix!
+        bot new_bot(team, position);
+        _bots.push_back(std::move(new_bot));
+    } 
+    
 
     void perform_action(bot & the_bot);
 
@@ -51,16 +53,15 @@ class bots {
 
     bool can_move(const bot & the_bot, const direction & dir) const;
 
-    void move(bot & the_bot, const direction & dir);
+    //void move(bot & the_bot, const direction & dir);
 
-    bool can_attack(const bot & the_bot, const direction & dir) const;
-
-    void attack(bot & the_bot, const direction & dir);
+    bot *can_attack(const bot & the_bot, const direction & dir) const;
+    //bool can_attack(const bot & the_bot, const direction & dir) const;
 
     void step(int time);
 
     inline void for_each_bot(std::function < void (bot & the_bot) > fun) {
-	for_each(_bots.begin(), _bots.end(), fun);
+        for_each(_bots.begin(), _bots.end(), fun);
     }
 };
 

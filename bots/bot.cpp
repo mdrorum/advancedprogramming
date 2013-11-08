@@ -10,18 +10,19 @@ bot::~bot()
 {
 }
 
-bot::status bot::get_energy() constconst
+bot::status bot::get_energy() const
 {
 }
 
-bot::status bot::get_attack() constconst
+bot::status bot::get_attack() const
 {
 }
 
-bot::status bot::get_defense() constconst
+bot::status bot::get_defense() const
 {
 }
 
-bot::status bot::get_experience() constconst
+bot::status bot::get_experience() const
 {
 }
+

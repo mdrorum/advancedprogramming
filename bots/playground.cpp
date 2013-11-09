@@ -92,6 +92,7 @@ int main()
 
 			  team_color[the_bot.get_team()]();
 
+              // WARNING deprecated OpenGL!
 			  glPushMatrix();
                   const bot::position & pos = the_bot.get_position();
 

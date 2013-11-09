@@ -21,7 +21,7 @@ class bots {
      * beware, there is no emptiness checking!
      */
     inline void create_bot(bot::position position, bot::team_id team) {
-        // fix!
+        // check and fix!
         bot new_bot(team, position);
         _bots.push_back(std::move(new_bot));
     } 
@@ -47,15 +47,16 @@ class bots {
      */
     void generate(size_t number_teams, size_t bots_per_team) throw(too_many_bots);
 
-    const bot *find_at(const bot::position & p) const;
+    bot *find_at(const bot::position & pos);
+    //bot *find_at(const bot::position & p) const;
 
-    bool empty(const bot::position & p) const;
+    bool empty(const bot::position & p);
 
-    bool can_move(const bot & the_bot, const direction & dir) const;
+    bool can_move(const bot & the_bot, const direction & dir);
 
     //void move(bot & the_bot, const direction & dir);
 
-    bot *can_attack(const bot & the_bot, const direction & dir) const;
+    bot *attacks(const bot & the_bot, const direction & dir);
     //bool can_attack(const bot & the_bot, const direction & dir) const;
 
     void step(int time);

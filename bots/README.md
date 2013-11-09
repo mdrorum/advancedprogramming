@@ -7,4 +7,3 @@ Playground for bot fighting.
 - Bots evolved through experience:
     - attack = base_attack + (0.1 * experience)
     - defense = base_attack + (0.15 * experience)
-

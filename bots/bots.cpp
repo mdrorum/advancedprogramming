@@ -20,11 +20,12 @@ void bots::generate(size_t number_teams,
         throw new too_many_bots;
     }
 
+    // reasonably efficient for sparse distributions
+    // a las vegas algorithm!!
     for (size_t i = 0; i < number_teams; ++i) {
 
         for (size_t j = 0; j < bots_per_team; j++) {
 
-            // reasonably efficient for sparse distributions
             std::pair < int, int >position;
             do {
                 position.first = random_width(gen);
@@ -43,12 +44,13 @@ bots::~bots()
 }
 
 
-const bot *bots::find_at(const bot::position & pos) const 
+bot *bots::find_at(const bot::position & pos)
 {
-    auto it = std::find_if(_bots.begin(), _bots.end(),
-            [&pos] (const bot & bot) {
-            return bot.get_position() == pos;}
-            );
+    auto it = std::find_if(_bots.begin(), _bots.end(), 
+            [&pos] (bot & the_bot) { 
+                the_bot.get_position() == pos; 
+            });
+
 
     if (it != _bots.end()) {
         return &(*it);
@@ -58,53 +60,44 @@ const bot *bots::find_at(const bot::position & pos) const
 
 }
 
-bool bots::empty(const bot::position & pos) const
+bool bots::empty(const bot::position & pos)
 {
     return find_at(pos) == nullptr;
 }
 
-// FIXME: try not to copy here!!
-bool bots::can_move(const bot & the_bot, const direction & dir) const 
+// TODO check whether the other bot is moving (you can move if the other guy is moving
+bool bots::can_move(const bot & the_bot, const direction & dir)
 {
-    // I have to _perform_ the movement
-    //bot copy_bot(the_bot);
-    //copy_bot.move(dir);
-    return true;
+    //auto & pos = the_bot.get_position();
+    return !empty(bot::new_position(the_bot.get_position(), dir));
 }
 
 // replace switch by something w/out comparisons!
 void bots::perform_action(bot & the_bot)
 {
-    int x_offset[] = { 0, 0, 1, 1, 1, 0, -1, -1, -1 };
-    int y_offset[] = { 0, 1, 1, 0, -1, -1, -1, 0, 1 };
 
     bot::position & pos = the_bot._position;
     const direction & dir = the_bot.get_next_direction();
 
     // TODO check attacks and act!
-    if (bot * victim = can_attack(the_bot, dir)) {
+    if (bot * victim = attacks(the_bot, dir)) {
         victim->_energy = std::min(0, 
                 victim->_energy - std::min(0, 
-                    the_bot.get_base_attack () - victim-> get_base_defense ()));
+                    the_bot.get_attack () - victim-> get_defense ()));
 
     } else if (can_move(the_bot, dir)) {
 
-        pos.first += x_offset[dir];
-        pos.second += y_offset[dir];
+        pos = bot::new_position(pos, dir);
+        //pos.first += bot::x_offset[dir];
+        //pos.second += bot::y_offset[dir];
     }
 }
 
 
-bot *bots::can_attack(const bot & the_bot, const direction & dir) const 
+bot *bots::attacks(const bot & the_bot, const direction & dir)
 {
-
-    return nullptr;
+    return find_at(bot::new_position(the_bot.get_position(), dir));
 }
-
-//void bots::move(bot & the_bot, const direction & dir)
-//{
-    //the_bot.move(dir);
-//}
 
 // FIXME test implementation, doesn't have any sense at all
 void bots::step(int time)

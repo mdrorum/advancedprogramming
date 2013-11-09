@@ -30,12 +30,14 @@ int main()
     SDL_Event event;
     bool gameover = false;
 
-    Uint32 previous_time = SDL_GetTicks();
-
     std::function < void (void) > team_color[] = {
         []() { glColor3f(1.0f, 0.0f, 0.0); },
         []() { glColor3f(0.0f, 1.0f, 0.0); },
         []() { glColor3f(0.0f, 0.0f, 1.0); },
+        []() { glColor3f(1.0f, 1.0f, 0.0); },
+        []() { glColor3f(0.0f, 1.0f, 1.0); },
+        []() { glColor3f(1.0f, 0.0f, 1.0); },
+        []() { glColor3f(1.0f, 1.0f, 1.0); },
     };
 
 
@@ -43,73 +45,85 @@ int main()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, width, 0, height);
+    
+
+    Uint32 previous_time = SDL_GetTicks();
+
+    int acc_time = 0;
 
     /* message pump */
     while (!gameover) {
 
-	Uint32 current_time = SDL_GetTicks();
 
-	bots.step(current_time - previous_time);
+        /* look for an event */
+        if (SDL_PollEvent(&event)) {
+            /* an event was found */
+            switch (event.type) {
+                /* close button clicked */
+                case SDL_QUIT:
+                    gameover = true;
+                    break;
+                    /* handle the keyboard */
+                case SDL_KEYDOWN:
+                    switch (event.key.keysym.sym) {
+                        case SDLK_ESCAPE:
+                        case SDLK_q:
+                            gameover = true;
+                            break;
+                    }
+                    break;
+            }
+        }
 
-	previous_time = current_time;
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	/* look for an event */
-	if (SDL_PollEvent(&event)) {
-	    /* an event was found */
-	    switch (event.type) {
-		/* close button clicked */
-	    case SDL_QUIT:
-		gameover = true;
-		break;
-		/* handle the keyboard */
-	    case SDL_KEYDOWN:
-		switch (event.key.keysym.sym) {
-		case SDLK_ESCAPE:
-		case SDLK_q:
-		    gameover = true;
-		    break;
-		}
-		break;
-	    }
-	}
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        Uint32 current_time = SDL_GetTicks();
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+        Uint32 delta = current_time - previous_time;
+
+        previous_time = current_time;
+
+        acc_time += delta;
+
+        if (acc_time > 1000) {
+
+            bots.step(delta);
+            acc_time = 0;
+        }
+
+        /////////////////////////////////////////
+        // AI goes here
+        bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
+                the_bot.try_to_do(S);
+                });
+        /////////////////////////////////////////
+
+        bots.for_each_bot([&team_color, &bots] (const bot & the_bot) {
 
 
-    /////////////////////////////////////////
+                team_color[the_bot.get_team()]();
 
-	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
-            the_bot.try_to_do(S);
-    });
+                // WARNING deprecated OpenGL!
+                glPushMatrix();
+                const bot::position & pos = the_bot.get_position();
 
-    /////////////////////////////////////////
+                glTranslatef(pos.first, pos.second, 0);
 
-	bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
-            
+                glBegin(GL_QUADS); 
+                glVertex3f(0.0f, 0.0f, 0.0f);
+                glVertex3f(1.0f, 0.0f, 0.0f);
+                glVertex3f(1.0f, 1.0f, 0.0f);
+                glVertex3f(0.0f, 1.0f, 0.0f); 
+                glEnd();
 
-			  team_color[the_bot.get_team()]();
+                glPopMatrix();
+                }
+                );
 
-              // WARNING deprecated OpenGL!
-			  glPushMatrix();
-                  const bot::position & pos = the_bot.get_position();
-
-                  glTranslatef(pos.first, pos.second, 0);
-
-                  glBegin(GL_QUADS); 
-                      glVertex3f(0.0f, 0.0f, 0.0f);
-                      glVertex3f(1.0f, 0.0f, 0.0f);
-                      glVertex3f(1.0f, 1.0f, 0.0f);
-                      glVertex3f(0.0f, 1.0f, 0.0f); 
-                  glEnd();
-
-			  glPopMatrix();
-              }
-              );
-
-	SDL_GL_SwapBuffers();
+        SDL_GL_SwapBuffers();
     }
 
     /* cleanup SDL */
@@ -118,3 +132,5 @@ int main()
 
     return 0;
 }
+
+

@@ -47,24 +47,27 @@ class bots {
      */
     void generate(size_t number_teams, size_t bots_per_team) throw(too_many_bots);
 
-    bot *find_at(const bot::position & pos);
-    //bot *find_at(const bot::position & p) const;
+    const bot *find_at(const bot::position & pos) const;
 
     bool empty(const bot::position & p);
 
     bool can_move(const bot & the_bot, const direction & dir);
 
-    //void move(bot & the_bot, const direction & dir);
+    const bot *attacks(const bot & the_bot, const direction & dir) const;
 
-    bot *attacks(const bot & the_bot, const direction & dir);
-    //bool can_attack(const bot & the_bot, const direction & dir) const;
+    void step(int delta);
 
-    void step(int time);
+    inline void for_each_bot(std::function < void (const bot & the_bot) > fun) const {
+        for_each(_bots.begin(), _bots.end(), fun);
+    }
 
     inline void for_each_bot(std::function < void (bot & the_bot) > fun) {
         for_each(_bots.begin(), _bots.end(), fun);
     }
-};
 
+    std::map <bot::team_id, size_t> bot_count() const;
+
+    bool game_over() const;
+};
 
 #endif

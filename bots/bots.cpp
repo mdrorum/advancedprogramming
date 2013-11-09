@@ -44,11 +44,11 @@ bots::~bots()
 }
 
 
-bot *bots::find_at(const bot::position & pos)
+const bot *bots::find_at(const bot::position & pos) const
 {
     auto it = std::find_if(_bots.begin(), _bots.end(), 
-            [&pos] (bot & the_bot) { 
-                the_bot.get_position() == pos; 
+            [&pos] (const bot & the_bot) { 
+                return the_bot.get_position() == pos; 
             });
 
 
@@ -79,22 +79,23 @@ void bots::perform_action(bot & the_bot)
     bot::position & pos = the_bot._position;
     const direction & dir = the_bot.get_next_direction();
 
-    // TODO check attacks and act!
-    if (bot * victim = attacks(the_bot, dir)) {
-        victim->_energy = std::min(0, 
-                victim->_energy - std::min(0, 
-                    the_bot.get_attack () - victim-> get_defense ()));
-
-    } else if (can_move(the_bot, dir)) {
-
-        pos = bot::new_position(pos, dir);
-        //pos.first += bot::x_offset[dir];
-        //pos.second += bot::y_offset[dir];
+    //// TODO check attacks and act!
+    if (const bot * victim_bot = attacks(the_bot, dir)) {
+        // hack to keep a 'const' api
+        auto victim = find_if(_bots.begin(), _bots.end(), [&victim_bot](bot & the_bot) { 
+                return the_bot.get_position() == victim_bot->get_position();
+            });
+        (*victim)._energy = std::min(0, 
+                (*victim)._energy - std::min(0, 
+                    the_bot.get_attack () - (*victim).get_defense()));
+    } 
+    else if (can_move(the_bot, dir)) {
+        the_bot._position = bot::new_position(pos, dir);
     }
 }
 
 
-bot *bots::attacks(const bot & the_bot, const direction & dir)
+const bot *bots::attacks(const bot & the_bot, const direction & dir) const
 {
     return find_at(bot::new_position(the_bot.get_position(), dir));
 }
@@ -102,24 +103,37 @@ bot *bots::attacks(const bot & the_bot, const direction & dir)
 // FIXME test implementation, doesn't have any sense at all
 void bots::step(int time)
 {
-    static int acc_time = 0;
-    acc_time += time;
-    if (acc_time > 1000) {
-        // acting and dying in the same loop changes the semantics
-        // currently, a bot can be dead but kill and move during the current
-        // turn
-        for_each_bot([this] (bot & the_bot) {
-                perform_action(the_bot);}
-                );
+    // acting and dying in the same loop changes the semantics
+    // currently, a bot can be dead but kill and move during the current
+    // turn
+    for_each_bot([this] (bot & the_bot) { perform_action(the_bot); });
 
-        // remove dead bots
-        for (auto it = _bots.begin(); it != _bots.end(); it++) {
-            if ((*it).get_energy() <= 0) {
-                _bots.erase(it);
-            }
+    // remove dead bots
+    for (auto it = _bots.begin(); it != _bots.end(); it++) {
+        if ((*it).get_energy() <= 0) {
+            _bots.erase(it);
         }
-
-        acc_time = 0;
     }
-
 }
+
+std::map <bot::team_id, size_t> bots::bot_count() const {
+    std::map <bot::team_id, size_t> result;
+    for_each_bot([&result] (const bot & the_bot)  {
+            const auto & t = the_bot.get_team();
+
+            if(result.count(t) == 0) {
+                result[t] = 1;
+            }
+            else {
+                result[t] += 1;
+            }
+        });
+
+    // move constructor of map is called!
+    return std::move(result);
+}
+
+bool bots::game_over() const {
+    return bot_count().size() < 2;
+}
+

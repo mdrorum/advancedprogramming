@@ -8,6 +8,8 @@ class bots;
 enum direction { NOTHING, N, NE, E, SE, S, SW, W, NW };
 
 /**
+ * bot class.
+ *
  * Non-const methods are private and container class is declared as a friend.
  * This enforces a very strict encapsulation pattern.
  */
@@ -15,9 +17,15 @@ class bot
 {
     public:
 
-        static const int x_offset[];
-        static const int y_offset[];
+        static const int X_OFFSET[];
+        static const int Y_OFFSET[];
 
+        static const int MAX_ENERGY = 3;
+        static const int BASE_ATTACK = 2;
+        static const int BASE_DEFENSE = 1;
+        static const int KILLS_FOR_ENERGY = 3;
+        static const int ATTACK_MULTIPLIER = 3;
+        static const int DEFENSE_MULTIPLIER = 2;
 
         typedef unsigned short status;
 
@@ -29,8 +37,11 @@ class bot
 
         bot (team_id id, const position & pos);
 
+        /**
+         * use this static method to compute the next hypothetical position
+         */
         static position new_position(const position &pos, const direction& dir) {
-            return {pos.first + x_offset[dir], pos.first + y_offset[dir]};
+            return {pos.first + X_OFFSET[dir], pos.second + Y_OFFSET[dir]};
         }
 
         virtual ~bot ();
@@ -67,6 +78,13 @@ class bot
             return _kills;
         }
 
+        /**
+         * use this method to "move" the bots.
+         *
+         * moves aren't guaranteed. the bot will try to move towards the
+         * desired direction and it can move, attack or do noting depending on
+         * the field.
+         */
         inline void try_to_do(const direction & dir) {
             _next_direction = dir;
         }

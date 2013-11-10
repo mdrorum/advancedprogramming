@@ -33,7 +33,6 @@ void bots::generate(size_t number_teams,
             } while (!empty(position));
 
             create_bot(position, i);
-
         }
 
     }
@@ -44,60 +43,63 @@ bots::~bots()
 }
 
 
-const bot *bots::find_at(const bot::position & pos) const
+bot *bots::find_at(const bot::position & pos)
 {
     auto it = std::find_if(_bots.begin(), _bots.end(), 
             [&pos] (const bot & the_bot) { 
                 return the_bot.get_position() == pos; 
             });
 
-
     if (it != _bots.end()) {
         return &(*it);
     } else {
         return nullptr;
     }
-
 }
 
-bool bots::empty(const bot::position & pos)
+const bot *bots::find_at(const bot::position & pos) const {
+    // yeah, "never use const_cast"...
+    return const_cast<const bot*>(const_cast<bots*>(this)->find_at(pos));
+}
+
+bool bots::empty(const bot::position & pos) const
 {
     return find_at(pos) == nullptr;
 }
 
 // TODO check whether the other bot is moving (you can move if the other guy is moving
-bool bots::can_move(const bot & the_bot, const direction & dir)
+bool bots::can_move(const bot & the_bot, const direction & dir) const
 {
-    //auto & pos = the_bot.get_position();
-    return !empty(bot::new_position(the_bot.get_position(), dir));
+    return empty(bot::new_position(the_bot.get_position(), dir));
 }
 
-// replace switch by something w/out comparisons!
 void bots::perform_action(bot & the_bot)
 {
 
     bot::position & pos = the_bot._position;
     const direction & dir = the_bot.get_next_direction();
 
-    //// TODO check attacks and act!
-    if (const bot * victim_bot = attacks(the_bot, dir)) {
-        // hack to keep a 'const' api
-        auto victim = find_if(_bots.begin(), _bots.end(), [&victim_bot](bot & the_bot) { 
-                return the_bot.get_position() == victim_bot->get_position();
-            });
-        (*victim)._energy = std::min(0, 
-                (*victim)._energy - std::min(0, 
-                    the_bot.get_attack () - (*victim).get_defense()));
+    if (bot * victim = attacks(the_bot, dir)) {
+        victim->_energy = std::max(0, 
+                victim->_energy - std::max(0, 
+                    the_bot.get_attack () - victim->get_defense()));
     } 
     else if (can_move(the_bot, dir)) {
-        the_bot._position = bot::new_position(pos, dir);
+        pos = bot::new_position(pos, dir);
     }
 }
 
 
-const bot *bots::attacks(const bot & the_bot, const direction & dir) const
+bot *bots::attacks(const bot & the_bot, const direction & dir)
 {
-    return find_at(bot::new_position(the_bot.get_position(), dir));
+    bot * b = find_at(bot::new_position(the_bot.get_position(), dir));
+
+    if(nullptr != b && b->get_team() != the_bot.get_team()) {
+        return b;
+    }
+    else {
+        return nullptr;
+    }
 }
 
 // FIXME test implementation, doesn't have any sense at all
@@ -129,7 +131,7 @@ std::map <bot::team_id, size_t> bots::bot_count() const {
             }
         });
 
-    // move constructor of map is called!
+    // move not needed
     return std::move(result);
 }
 

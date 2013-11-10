@@ -17,15 +17,6 @@ class bots {
 
     typedef std::vector < bot > field_bots;
 
-    /**
-     * beware, there is no emptiness checking!
-     */
-    inline void create_bot(bot::position position, bot::team_id team) {
-        // check and fix!
-        bot new_bot(team, position);
-        _bots.push_back(std::move(new_bot));
-    } 
-    
 
     void perform_action(bot & the_bot);
 
@@ -33,8 +24,17 @@ class bots {
     bot::field_size _height;
     field_bots _bots;
 
-  public:
 
+    /**
+     * beware, there is no emptiness checking!
+     */
+    inline void create_bot(bot::position position, bot::team_id team) {
+        bot new_bot(team, position);
+        // move is not really needed here
+        _bots.push_back(std::move(new_bot));
+    } 
+  public:
+    
   class too_many_bots:std::exception {
     };
 
@@ -47,13 +47,15 @@ class bots {
      */
     void generate(size_t number_teams, size_t bots_per_team) throw(too_many_bots);
 
+    bot *find_at(const bot::position & pos);
+
     const bot *find_at(const bot::position & pos) const;
 
-    bool empty(const bot::position & p);
+    bool empty(const bot::position & p) const;
 
-    bool can_move(const bot & the_bot, const direction & dir);
+    bool can_move(const bot & the_bot, const direction & dir) const;
 
-    const bot *attacks(const bot & the_bot, const direction & dir) const;
+    bot *attacks(const bot & the_bot, const direction & dir);
 
     void step(int delta);
 

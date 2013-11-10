@@ -1,10 +1,10 @@
 #include "bot.h"
 
-const int bot::x_offset[] = { 0, 0, 1, 1, 1, 0, -1, -1, -1 };
-const int bot::y_offset[] = { 0, 1, 1, 0, -1, -1, -1, 0, 1 };
+const int bot::X_OFFSET[] = { 0, 0, 1, 1, 1, 0, -1, -1, -1 };
+const int bot::Y_OFFSET[] = { 0, 1, 1, 0, -1, -1, -1, 0, 1 };
 
 bot::bot(team_id team, const position & pos):_position(pos), _team(team),
-_attack(2), _defense(1), _experience(0), _energy(100), _kills(0)
+_attack(BASE_ATTACK), _defense(BASE_DEFENSE), _experience(1), _energy(MAX_ENERGY), _kills(0), _next_direction(NOTHING)
 {
 }
 
@@ -13,12 +13,12 @@ bot::~bot()
 }
 
 void bot::kills_bot(const bot & victim) {
-    _experience += victim.get_experience() + 1;
+    _experience += victim.get_experience();
     _kills++;
-    if(_kills % 3 == 0) {
-        _energy = 100;
+    if(_kills % KILLS_FOR_ENERGY == 0) {
+        _energy = MAX_ENERGY;
     }
-    _attack = 3 * _experience;
-    _defense = 2 * _experience;
+    _attack = ATTACK_MULTIPLIER * _experience;
+    _defense = DEFENSE_MULTIPLIER * _experience;
 }
 

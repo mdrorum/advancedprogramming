@@ -51,6 +51,13 @@ int main()
 
     int acc_time = 0;
 
+
+    // testing... doesn't work if create_bot is private
+    //bots.create_bot({5, 5}, 1);
+    //bots.create_bot({5, 6}, 2);
+    //bot * bottie = bots.find_at({5,6});
+    //bottie->try_to_do(S);
+
     /* message pump */
     while (!gameover) {
 
@@ -96,9 +103,9 @@ int main()
 
         /////////////////////////////////////////
         // AI goes here
-        bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
-                the_bot.try_to_do(S);
-                });
+        //bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
+                //the_bot.try_to_do(S);
+                //});
         /////////////////////////////////////////
 
         bots.for_each_bot([&team_color, &bots] (const bot & the_bot) {

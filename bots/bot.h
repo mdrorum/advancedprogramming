@@ -20,6 +20,8 @@ class bot
         static const int X_OFFSET[];
         static const int Y_OFFSET[];
 
+        // this should be read from a config file... any volunteers?
+        // what about a quake-like console? there are some libraries for that!
         static const int MAX_ENERGY = 3;
         static const int BASE_ATTACK = 2;
         static const int BASE_DEFENSE = 1;
@@ -84,6 +86,8 @@ class bot
          * moves aren't guaranteed. the bot will try to move towards the
          * desired direction and it can move, attack or do noting depending on
          * the field.
+         *
+         * @param dir the direction you want the bot to move to or attack
          */
         inline void try_to_do(const direction & dir) {
             _next_direction = dir;
@@ -96,22 +100,19 @@ class bot
         status _attack;
         status _defense;
         status _kills;
-        //status _base_attack;
-        //status _base_defense;
         status _experience;
         status _energy;
         team_id _team;
         position _position;
         direction _next_direction;
 
+        /**
+         * called by <code>bot</code> when a bot kills
+         *
+         * @param victim the bot that has just died
+         */
         void kills_bot(const bot & victim);
 
-        /**
-         * this enforces modification of the data structure through container class
-         */
-        //inline void move(const direction & dir) {
-            //_next_direction = dir;
-        //}
 };
 
 

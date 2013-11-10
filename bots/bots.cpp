@@ -118,18 +118,9 @@ void bots::step(int time)
     }
 }
 
-std::map <bot::team_id, size_t> bots::bot_count() const {
+std::map<bot::team_id, size_t> bots::bot_count() const {
     std::map <bot::team_id, size_t> result;
-    for_each_bot([&result] (const bot & the_bot)  {
-            const auto & t = the_bot.get_team();
-
-            if(result.count(t) == 0) {
-                result[t] = 1;
-            }
-            else {
-                result[t] += 1;
-            }
-        });
+    for_each_bot([&result] (const bot & the_bot)  { ++result[the_bot.get_team()]; });
 
     // move not needed
     return std::move(result);

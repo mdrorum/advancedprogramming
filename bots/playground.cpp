@@ -12,7 +12,7 @@ int main()
 
     bots bots(width, height);
 
-    bots.generate(2, 5);
+    bots.generate(4, 7);
 
     /* initialize SDL */
     SDL_Init(SDL_INIT_VIDEO);
@@ -101,11 +101,18 @@ int main()
             acc_time = 0;
         }
 
+
+
         /////////////////////////////////////////
         // AI goes here
+        //auto m = bots.bot_count();
+        //for_each(m.begin(), m.end(), [] (const std::pair<bot::team_id, size_t> &kv) {
+                //std::cout << kv.first << ", " << kv.second << std::endl;
+                //});
         //bots.for_each_bot([&team_color, &bots] (bot & the_bot) {
                 //the_bot.try_to_do(S);
                 //});
+        gameover = gameover || bots.game_over();
         /////////////////////////////////////////
 
         bots.for_each_bot([&team_color, &bots] (const bot & the_bot) {

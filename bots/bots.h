@@ -1,3 +1,13 @@
+
+/** 
+ * @mainpage bots
+ *
+ * @section about
+ *
+ * logic for a bot-fighting game.
+ *
+ */
+
 #ifndef _BOTS_H_INCLUDED_
 #define _BOTS_H_INCLUDED_
 
@@ -11,7 +21,6 @@
 
 
 class bots {
-
 
   private:
 
@@ -55,10 +64,23 @@ class bots {
 
     bool can_move(const bot & the_bot, const direction & dir) const;
 
+    /**
+     * @param the_bot the bot that could be attacking
+     * @param dir the dir the bot is currently moving towards
+     * @return a pointer to the bot `the_bot` would attack or nullptr otherwise
+     */
     bot *attacks(const bot & the_bot, const direction & dir);
 
+    /**
+     * a loop. use it with delta in milliseconds.
+     */
     void step(int delta);
 
+    /**
+     * iterates over the full vector of bots.
+     *
+     * this is the <code>const</code> version. non-const version also available.
+     */
     inline void for_each_bot(std::function < void (const bot & the_bot) > fun) const {
         for_each(_bots.begin(), _bots.end(), fun);
     }
@@ -67,7 +89,7 @@ class bots {
         for_each(_bots.begin(), _bots.end(), fun);
     }
 
-    std::map <bot::team_id, size_t> bot_count() const;
+    std::map<bot::team_id, size_t> bot_count() const;
 
     bool game_over() const;
 };

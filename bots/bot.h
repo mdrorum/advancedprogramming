@@ -8,7 +8,11 @@ class bots;
 enum direction { NOTHING, N, NE, E, SE, S, SW, W, NW };
 
 /**
- * bot class.
+ * bot
+ * ===
+ *
+ * this file includes the class and relative data for a single bot. it is meant
+ * to be used with the <code>bots</code> class.
  *
  * Non-const methods are private and container class is declared as a friend.
  * This enforces a very strict encapsulation pattern.

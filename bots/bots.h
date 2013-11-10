@@ -10,6 +10,13 @@
 #include "bot.h"
 
 
+/**
+ * bots
+ * ====
+ *
+ * container for the bots playground. all the game logic is here.
+ *
+ */
 class bots {
 
   private:

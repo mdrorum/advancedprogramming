@@ -1,13 +1,3 @@
-
-/** 
- * @mainpage bots
- *
- * @section about
- *
- * logic for a bot-fighting game.
- *
- */
-
 #ifndef _BOTS_H_INCLUDED_
 #define _BOTS_H_INCLUDED_
 

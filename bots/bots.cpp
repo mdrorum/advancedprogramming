@@ -6,8 +6,7 @@ bots::bots(bot::field_size width, bot::field_size height):_width(width),
 {
 }
 
-void bots::generate(size_t number_teams,
-        size_t bots_per_team) throw(too_many_bots)
+void bots::generate(size_t number_teams, size_t bots_per_team) throw(too_many_bots)
 {
 
     std::random_device rd;
@@ -70,7 +69,10 @@ bool bots::empty(const bot::position & pos) const
 // TODO check whether the other bot is moving (you can move if the other guy is moving
 bool bots::can_move(const bot & the_bot, const direction & dir) const
 {
-    return empty(bot::new_position(the_bot.get_position(), dir));
+    const bot::position & p = bot::new_position(the_bot.get_position(), dir);
+    return p.first >= 0 && p.first < _width &&
+        p.second >= 0 && p.second < _height && 
+        empty(p);
 }
 
 void bots::perform_action(bot & the_bot)

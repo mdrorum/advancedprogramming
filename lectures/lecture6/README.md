@@ -12,11 +12,9 @@
     - is the only messaging passing library considered a standard
     - http://www.open-mpi.org/ (free, available on GNU/Linux)
 - Networking
-    - low-level to mid-level
-    - try boost::asio
-    - explain adding modules to Cmake
-    - example with enet
-    - many libraries can be used, enet is special
+    - boost::asio
+    - code in `bots`
+    - many libraries can be used
 
 
 # Exercises

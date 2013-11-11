@@ -2,17 +2,8 @@ cmake_minimum_required (VERSION 2.6)
 
 project (lecture6)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
-
 # remember to enable c++11!!!
 add_definitions(-std=c++11)
-
-#FIND_PACKAGE( Boost COMPONENTS system filesystem REQUIRED )
-#INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
-
-FIND_PACKAGE( ENet REQUIRED )
-add_executable(sockets sockets.cpp)
-target_link_libraries(sockets ${ENET_LIBRARY})
 
 
 add_executable(threads threads.cpp)

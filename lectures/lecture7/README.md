@@ -1,4 +1,4 @@
-# Lecture 6
+# Lecture 6: Randomized algorithms
 
 - Montecarlo: http://en.wikipedia.org/wiki/Monte_Carlo_algorithm
     - running time is deterministic, output is not.

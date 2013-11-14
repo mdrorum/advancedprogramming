@@ -13,6 +13,7 @@
     - http://www.open-mpi.org/ (free, available on GNU/Linux)
 - Networking
     - boost::asio
+    - why you shouldn't use syncs: http://stackoverflow.com/questions/9200005/unblock-synchronous-read-on-boostasioserial-port
     - code in `bots`
     - many libraries can be used
 

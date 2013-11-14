@@ -5,6 +5,7 @@
       http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference
 - Threads
     - C++ threading (high level)
+    - boost::thread vs. std::thread: http://stackoverflow.com/questions/7241993/is-it-smart-to-replace-boostthread-and-boostmutex-with-c11-equivalents
 - MPI
     - explanation: http://mpitutorial.com/
     - OpenMPI and other implementations: http://www.open-mpi.org/
@@ -22,5 +23,6 @@
 
 - Add network communication between the server and clients of the bots
     - client is mandatory
+    - use async calls
     - you can send pull requests for the server
 

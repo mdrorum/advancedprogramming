@@ -7,3 +7,6 @@
 
 
 # Exercises
+
+- there's no specific exercise for this lecture, but "correct" use of pointers and references will
+  be required from now on.

@@ -10,6 +10,4 @@
 
 # Exercises
 
-- program a behavior for your bots based on a Las Vegas algorithm
-- program a behavior for your bots based on a Montecarlo algorithm
-
+- your algorithm must use (or have a version that uses) a randomized algorithm

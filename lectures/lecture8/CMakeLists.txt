@@ -4,6 +4,6 @@ project (lecture)
 
 add_definitions(-std=c++11)
 
-add_executable()
+add_executable(templates templates.cpp)
 
 

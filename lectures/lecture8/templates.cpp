@@ -66,6 +66,13 @@ struct increment_type {
 int main()
 {
     
+    // not very related, but it's good to know other compile-time programming techniques
+    // preprocessor macros have limited use, but they're still valid for a
+    // number of programming patterns. 
+    //
+    // when running the compiler, preprocessor variables can be defined. there
+    // variables can help to choose which code to compile. Useful for
+    // multi-platform code, features that the user wants in the code...
 #define ALTERNATIVE 5
 #ifdef ALTERNATIVE
     std::cout << "yeah, compile-time programming existed before C++" << std::endl;
@@ -85,6 +92,7 @@ int main()
     // just to make it explicit...
     std::cout << "template adding with float: " << add((int)3, (int)5) << std::endl;
 
+    // the function with templates accepts different types
     std::cout << "template adding with int: " << add((float)3.7, (float)15.0) << std::endl;
 
     int a = Const<9>::value;

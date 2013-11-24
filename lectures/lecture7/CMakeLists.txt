@@ -5,7 +5,4 @@ project (lecture7)
 # remember to enable c++11!!!
 add_definitions(-std=c++11)
 
-add_executable(montecarlo montecarlo.cpp)
 add_executable(vegas vegas.cpp)
-
-

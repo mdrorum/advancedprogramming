@@ -2,13 +2,16 @@
 
 
 - Programming paradigms
-    - Functional programming. FP in C++. Lambdas (again)
-    - FRP. FRP in C++
-    - Lambdas and closures
-    - AOP
-    - EOP
+    - Functional
+        - referential transparency
+        - mutability
+        - high order functions
     - Logic programming
-    - Continuation passing style
-
+        - Backtracking
+        - Prolog
+    - Event driven programming
+        - 
 
 # Exercises
+
+- use lambdas 

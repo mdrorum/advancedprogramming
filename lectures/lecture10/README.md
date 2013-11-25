@@ -1,14 +1,39 @@
 # Lecture 10: Programming patterns
 
 
-- (Just a few comments on) programming patterns
-    - (inspired by http://stackoverflow.com/questions/382623/what-are-your-3-most-important-programming-patterns-and-why)
-    - Model/view
-    - Encapsulation
-    - Composition over inheritance
-    - Factory
-    - Inversion of control
-    - Observer
+- Design patterns: http://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns
+    - Factory/abstract factory: building objects through polymorphism
+    - Builder: proxy class for building objects
+    - Singleton: class with a single instance
+    - Prototype: class that can be cloned
+    - Adapter: conversion of interface
+    - Bridge: separate API from implementation
+    - Composite: treat compositing and individual objects the same
+    - Decorator: attach functionality dynamically
+    - Facade: hide complexity
+    - Flyweight: saving memory by sharing resources
+    - Proxy
+    - Mixins
+    - Interface-based Programming: enforcing encapsulation
+    - Chain of Responsibility: delegation
+    - Command: commands as instances with a common interface
+    - Interpreter: language/DSL
+    - Iterator: STL is a good example
+    - Mediator
+    - Memento: serialization
+    - Observer: letting objects know about changes
+    - State: changing behavior when state changes (FSMs)
+    - Strategy: several algorithms, single interface
+    - Template Method: deferring particular behavior to subclasses
+    - Visitor
+    - Model-View-Controller (MVC)
 
 
 # Exercises
+
+- Make your frontend a singleton
+- Create a facade class between your networking code and your client
+- Clearly separate model and view in your program
+- If you use any sort of tree search, implement your operator using the command pattern
+- Add methods to serialize and de-serialize your AI's state (you can use Boost)
+- Any other application of a design pattern will be taken into consideration

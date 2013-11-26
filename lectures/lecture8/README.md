@@ -10,6 +10,11 @@
         - [Traits](http://accu.org/index.php/journals/442)
             - there are several [already defined traits](http://www.cplusplus.com/reference/type_traits/) in `<type_traits>`
 
+# Extended bibliography
+
+- [C++ Templates: The Complete
+  Guide](http://www.pearsonhighered.com/educator/academic/product/0,1144,0201734842,00.html)
+
 # Exercises
 
 - program a planner (it can be as simple as you want) that works not only for bots but for any

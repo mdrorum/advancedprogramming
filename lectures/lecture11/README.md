@@ -9,6 +9,11 @@
         - Backtracking
         - Prolog
     - Event driven programming
+        - SDL classical loop, for instance
+
+# Extended bibliography
+
+- [Event-Driven Programming: Introduction, Tutorial, History](http://eventdrivenpgm.sourceforge.net/)
 
 # Exercises
 
@@ -16,3 +21,5 @@
     - put messages from the server in an event queue
     - take the messages from the queue and dispatch them
     - use mutexes where needed
+- optional
+    - implement your search algorithm in Prolog

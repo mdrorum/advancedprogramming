@@ -2,7 +2,12 @@
 
 - Testing
     - Automated tests
-    - Test driven development
+    - Test driven development: http://en.wikipedia.org/wiki/Test-driven_development
+        1. write the tests
+        2. check that they fail
+        3. make code that passes those tests
+        4. refactor to make it look like real code
+        5. goto 1
 
 
 # Exercises

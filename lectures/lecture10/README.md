@@ -27,6 +27,8 @@
     - Template Method: deferring particular behavior to subclasses
     - Visitor
     - Model-View-Controller (MVC)
+- "Gang of four"
+    - http://en.wikipedia.org/wiki/Design_Patterns
 
 
 # Exercises
@@ -37,3 +39,4 @@
 - If you use any sort of tree search, implement your operator using the command pattern
 - Add methods to serialize and de-serialize your AI's state (you can use Boost)
 - Any other application of a design pattern will be taken into consideration
+

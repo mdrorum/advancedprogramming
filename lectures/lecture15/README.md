@@ -6,7 +6,7 @@
     - Haskell
     - Prolog
     - Java and C#
-    - Lisp
-
 
 # Exercises
+
+- 

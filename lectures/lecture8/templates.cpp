@@ -17,7 +17,8 @@ struct Const {
 template <unsigned n>
 struct factorial
 {
-  enum { value = n * factorial<n-1>::value };
+  //enum { value = n * factorial<n-1>::value };
+  static const int value = n * factorial<n-1>::value;
 };
 template <>          // | look at this syntax!
 struct factorial<0>  // |

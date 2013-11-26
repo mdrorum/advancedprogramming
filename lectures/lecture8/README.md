@@ -1,11 +1,15 @@
 # Lecture 8: Templates
 
 - Templates: 
-    - generic programming: http://en.wikipedia.org/wiki/Generic_programming
+    - [Generic programming](http://en.wikipedia.org/wiki/Generic_programming)
+    - [Basic templates](http://www.cplusplus.com/doc/tutorial/templates/)
     - Advanced templates
         - [Template metaprogramming](http://en.wikibooks.org/wiki/C%2B%2B_Programming/Templates/Template_Meta-Programming)
-        - Template specialization
-        - Traits
+        - [Template
+          specialization](http://www.cprogramming.com/tutorial/template_specialization.html)
+        - [Traits](http://accu.org/index.php/journals/442)
+            - there are several [already defined
+              traits](http://www.cplusplus.com/reference/type_traits/] in `<type_traits>`
 
 # Exercises
 

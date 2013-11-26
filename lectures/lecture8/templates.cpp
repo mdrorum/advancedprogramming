@@ -16,9 +16,13 @@ struct Const {
 
 ////////////////////////////////////////////////////////
 // template specialization and metaprogramming
+//
+// template metaprograming allows for loops, but these must be implemented
+// recursively
 template <unsigned n>
 struct factorial
 {
+  // both syntaxes are valid
   //enum { value = n * factorial<n-1>::value };
   static const int value = n * factorial<n-1>::value;
 };
@@ -32,9 +36,10 @@ struct factorial<0>  // |
 
 
 ////////////////////////////////////////////////////////
-// boost have traits
+// boost has traits:
 // http://www.boost.org/doc/libs/1_55_0/libs/type_traits/doc/html/index.html
 
+// implementation of the trait "can_be_incremented"
 template<typename T>
 struct can_be_incremented {
     static const bool value = false; // static-const-things can also be used
@@ -44,9 +49,13 @@ template<>
 struct can_be_incremented <int> {
     static const bool value = true;
 };
+//////////////////////////////////////////////////////////////
 
+// the metaprogramming template "increment" can increment any value
+// that satisfies the troit "can_be_incremented"
 template<typename A, bool>
 struct increment {
+    // compile-time error by default
 };
 
 template<typename A>
@@ -55,15 +64,15 @@ struct increment <A, true> {
         return a++;
     }
 };
+//////////////////////////////////////////////////////////////
 
-template<typename A>
-struct increment_type {
-    constexpr static A increment_number(A a) {
-        return increment<A, can_be_incremented<A>::value>::increment_number(a);
-    }
-};
+// comfortable use of traits
+template<typename T>
+T increment_number(T j)  {
+    return increment<T, can_be_incremented<T>::value>::increment_number(j);
+}
 
-////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 
 int main()
@@ -107,10 +116,11 @@ int main()
     // traits
 
     int j = 9;
-    std::cout << "incremented: " << increment_type<decltype(j)>::increment_number(j) << std::endl;
+    //std::cout << "incremented: " << increment_type<decltype(j)>::increment_number(j) << std::endl;
+    std::cout << "incremented: " << increment_number(j) << std::endl;
 
     // non-compiling template
-    //std::cout << increment_type<char>::increment_number('a') << std::endl;
+    //std::cout << increment_number('a') << std::endl;
 
     return 0;
 }

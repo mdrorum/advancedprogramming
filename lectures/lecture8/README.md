@@ -8,8 +8,7 @@
         - [Template
           specialization](http://www.cprogramming.com/tutorial/template_specialization.html)
         - [Traits](http://accu.org/index.php/journals/442)
-            - there are several [already defined
-              traits](http://www.cplusplus.com/reference/type_traits/] in `<type_traits>`
+            - there are several [already defined traits](http://www.cplusplus.com/reference/type_traits/] in `<type_traits>`
 
 # Exercises
 

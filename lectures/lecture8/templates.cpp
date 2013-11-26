@@ -7,6 +7,8 @@ N add(N a, N b) {
     return a + b;
 }
 
+// templates are turing complete!
+// C++ templates allow for typed "variables"
 template <int n>
 struct Const {
     enum { value = n };

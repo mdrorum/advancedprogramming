@@ -9,16 +9,14 @@ link(p5, p6).
 link(p6, end).
 link(p3, end).
 
-path(P, P) :-
-    last(P, end).
-path(P, Pout) :-
-    last(P, L),
-    link(L, O),
-    append(P, [O], P2),
-    path(P2, Pout).
+path([end | P], [end | P]).
+path([F | P], Pout) :-
+    link(F, O),
+    path([O, F | P], Pout).
 
 run :-
-    writeln('all paths from p1 to end:'),
-    findall(P, path([p1], P), Ps),
+    writeln('all paths from p1 to end (reversed):'),
+    findall(P, path([p1], P), Pl),
+    list_to_set(Pl, Ps),
     maplist(writeln, Ps).
 

@@ -16,6 +16,7 @@ TARGET_LINK_LIBRARIES(qtapp ${QT_LIBRARIES})
 ################################# loaded
 add_executable(qtloaded qtloaded.cpp)
 TARGET_LINK_LIBRARIES(qtloaded ${QT_LIBRARIES})
+TARGET_LINK_LIBRARIES(qtloaded QtUiTools)
 
 ################################# compiling
 QT4_WRAP_UI(UISrcs qtwindow.ui)

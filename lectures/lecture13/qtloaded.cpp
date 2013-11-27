@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QUiLoader loader;
-    QFile file(":/qtwindow.ui");
+    QFile file("qtwindow.ui");
     file.open(QFile::ReadOnly);
 
     QWidget *myWidget = loader.load(&file);

@@ -8,8 +8,8 @@
         - 'reference to reference' doesn't exist (it's a r-value reference)
     - [Smart pointers](http://www.codeproject.com/Articles/541067/Cplusplus11-Smart-Pointers)
         - [`auto_ptr`](http://en.wikipedia.org/wiki/Auto_ptr) (deprecated): 
-        - [`unique_ptr`] (C++11, replaces `auto_ptr` in most cases)
-        - [`shared_ptr`], with reference counting
+        - `unique_ptr` (C++11, replaces `auto_ptr` in most cases)
+        - `shared_ptr`, with reference counting
         - [Boost](http://www.boost.org/doc/libs/1_55_0/libs/smart_ptr/smart_ptr.htm)
             - `scoped_ptr`/`scoped_array` for dynamic RIIA, no special semantics
             - `shared_ptr`/[`shared_array`](http://stackoverflow.com/questions/13061979/shared-ptr-to-an-array-should-it-be-used) (like std::shared_ptr)

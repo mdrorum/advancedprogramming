@@ -9,12 +9,14 @@ INCLUDE(${QT_USE_FILE})
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 
 
-QT4_WRAP_CPP(qtapp_HEADERS_MOC ${qtapp_HEADERS})
-
-QT4_WRAP_UI(qtapp_UIS_H ${qtapp_UIS})
-
+################################# library
 add_executable(qtapp qtapp.cpp)
-
 TARGET_LINK_LIBRARIES(qtapp ${QT_LIBRARIES})
 
+
+################################# compiling
+QT4_WRAP_UI(UISrcs qtcompiled.ui)
+QT4_WRAP_CPP(MOCSrcs ui_qtcompiled.h)
+ADD_EXECUTABLE(qtcompiled qtcompiled.cpp ${MOCSrcs} ${UISrcs})
+TARGET_LINK_LIBRARIES(qtcompiled ${QT_LIBRARIES})
 

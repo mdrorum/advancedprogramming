@@ -30,5 +30,7 @@
     - put messages from the server in an event queue
     - take the messages from the queue and dispatch them
     - use mutexes where needed
-- optional
+- functional style will be valued
+- *optional*
     - implement your search algorithm in Prolog
+

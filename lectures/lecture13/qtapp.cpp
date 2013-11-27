@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QTextEdit>
-//#include <QUiLoader>
 
 int main(int argv, char **args)
 {

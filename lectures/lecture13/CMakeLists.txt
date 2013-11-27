@@ -13,10 +13,13 @@ ADD_DEFINITIONS(${QT_DEFINITIONS})
 add_executable(qtapp qtapp.cpp)
 TARGET_LINK_LIBRARIES(qtapp ${QT_LIBRARIES})
 
+################################# loaded
+add_executable(qtloaded qtloaded.cpp)
+TARGET_LINK_LIBRARIES(qtloaded ${QT_LIBRARIES})
 
 ################################# compiling
-QT4_WRAP_UI(UISrcs qtcompiled.ui)
-QT4_WRAP_CPP(MOCSrcs ui_qtcompiled.h)
+QT4_WRAP_UI(UISrcs qtwindow.ui)
+QT4_WRAP_CPP(MOCSrcs ui_qtwindow.h)
 ADD_EXECUTABLE(qtcompiled qtcompiled.cpp ${MOCSrcs} ${UISrcs})
 TARGET_LINK_LIBRARIES(qtcompiled ${QT_LIBRARIES})
 

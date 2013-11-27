@@ -11,12 +11,14 @@
         - Parsed UI
     - [Using Cmake](http://qt-project.org/quarterly/view/using_cmake_to_build_qt_projects)
         - [another link](http://www.cmake.org/Wiki/CMake/Tutorials/Qt)
+    - Other tools
+        - [Qt Quick/QML](http://qt-project.org/wiki/Qt_Quick_Tutorial) for rapid GUI creation
+            - [Connecting with C++](http://qt-project.org/doc/qt-4.8/qml-extending-tutorial-index.html)
+            - [Deploying](http://qt-project.org/doc/qt-5.0/qtquick/qtquick-deployment.html)
+        - [QMake](http://qt-project.org/doc/qt-5.0/qtdoc/qmake-manual.html) for compiling Qt projects
+        - [QTLinguist](http://qt-project.org/doc/qt-4.8/linguist-manual.html) for localization
 
 # Exercises
 
 - Wrap your client as a Qt desktop application.
 
-    - Qt Quick
-    - QML
-    - QMake
-    - QTLinguist

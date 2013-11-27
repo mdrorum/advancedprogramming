@@ -120,7 +120,7 @@ int main()
     std::cout << "incremented: " << increment_number(j) << std::endl;
 
     // non-compiling template
-    //std::cout << increment_number('a') << std::endl;
+    std::cout << increment_number('a') << std::endl;
 
     return 0;
 }

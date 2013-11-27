@@ -1,9 +1,9 @@
 cmake_minimum_required (VERSION 2.6)
 
-project (lecture)
+project (lecture11)
 
 add_definitions(-std=c++11)
 
-add_executable()
+add_executable(functional functional.cpp)
 
 

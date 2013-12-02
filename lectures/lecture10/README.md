@@ -31,6 +31,7 @@
 # Extended bibliography
 
 - ["Gang of four"](http://en.wikipedia.org/wiki/Design_Patterns)
+- [Code examples](http://calumgrant.net/patterns/)
 
 # Exercises
 

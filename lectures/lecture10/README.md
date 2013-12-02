@@ -32,6 +32,7 @@
 
 - ["Gang of four"](http://en.wikipedia.org/wiki/Design_Patterns)
 - [Code examples](http://calumgrant.net/patterns/)
+- [UML diagrams and some code](http://www.oodesign.com/)
 
 # Exercises
 

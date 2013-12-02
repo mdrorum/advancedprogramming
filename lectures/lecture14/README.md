@@ -6,6 +6,8 @@
     - [Ordering algorithms](http://en.wikipedia.org/wiki/Sorting_algorithm)
     - [Evolutionary programming](http://en.wikipedia.org/wiki/Genetic_algorithm)
     - [Minimax](http://en.wikipedia.org/wiki/Minimax) and [alpha-beta prunning](http://en.wikipedia.org/wiki/Alpha-beta_pruning)
+        - [Zero-sum games](http://en.wikipedia.org/wiki/Zero-sum_%28Game_theory%29)
+        - [Negamax](http://en.wikipedia.org/wiki/Negamax) as a simplification: `max(a, b) = -min(-a, -b)`        
 
 # Extended bibliography
 

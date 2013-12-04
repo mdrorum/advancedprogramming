@@ -27,6 +27,8 @@
         - Template Method: deferring particular behavior to subclasses
         - Visitor: when you let other class in
         - Model-View-Controller (MVC)
+    - Not for every language (certainly useful for C++). Other programming paradigms are not
+      benefited from or don't need these patterns.
 
 # Extended bibliography
 

@@ -39,5 +39,5 @@
     - use mutexes where needed
 - functional style will be valued
 - *optional*
-    - implement your search algorithm in Prolog
+    - implement your search algorithm in Prolog, Clojure or any other symbolic programming language.
 

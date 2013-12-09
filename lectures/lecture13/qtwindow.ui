@@ -17,14 +17,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>40</x>
+      <y>10</y>
       <width>79</width>
       <height>29</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Salir</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -35,6 +35,32 @@
       <width>241</width>
       <height>101</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>79</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Borrar texto</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="outer">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>79</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>outer</string>
     </property>
    </widget>
   </widget>
@@ -67,16 +93,16 @@
   <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
-   <receiver>plainTextEdit</receiver>
-   <slot>clear()</slot>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>76</x>
      <y>70</y>
     </hint>
     <hint type="destinationlabel">
-     <x>307</x>
-     <y>104</y>
+     <x>235</x>
+     <y>92</y>
     </hint>
    </hints>
   </connection>
@@ -93,6 +119,22 @@
     <hint type="destinationlabel">
      <x>235</x>
      <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>plainTextEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>118</y>
     </hint>
    </hints>
   </connection>

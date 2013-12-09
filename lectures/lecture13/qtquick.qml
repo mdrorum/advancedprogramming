@@ -1,5 +1,7 @@
 import QtQuick 1.0
  
+// qmlviewer
+
 Rectangle {
     width: 300
     height: 300

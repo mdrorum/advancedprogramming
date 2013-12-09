@@ -12,6 +12,7 @@ struct add {
 
 int main() {
     std::vector<int> v = {1, 2, 3, 4, 5};
+
     std::for_each(v.begin(), v.end(), add<int, 10>());
     std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, "\n"));
     return 0;

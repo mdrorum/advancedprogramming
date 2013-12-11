@@ -30,3 +30,4 @@ BOOST_AUTO_TEST_CASE( test_equals )
     //BOOST_CHECK( test_value != t.get_i() );
     BOOST_CHECK_EQUAL( test_value, t.get_i() );
 }
+

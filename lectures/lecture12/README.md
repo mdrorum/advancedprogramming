@@ -9,6 +9,7 @@
         4. refactor to make it look like real code
         5. goto 1
     - [Boost Test library](http://www.boost.org/doc/libs/1_55_0/libs/test/doc/html/index.html)
+    - There are [many others](http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#C.2B.2B)
     - [Cmake & Ctest](http://www.vtk.org/Wiki/CMake/Testing_With_CTest)
 
 # Extended bibliography

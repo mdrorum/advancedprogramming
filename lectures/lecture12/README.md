@@ -14,6 +14,7 @@
         - it can be automatically estimated with some compilers.
         - you run your test suite and see which functions are called. Those which are not are not
           covered.
+        - [Gcov](http://en.wikipedia.org/wiki/Gcov)
     - Requirements influence the tests.
     - [Boost Test library](http://www.boost.org/doc/libs/1_55_0/libs/test/doc/html/index.html)
     - There are [many others](http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#C.2B.2B)

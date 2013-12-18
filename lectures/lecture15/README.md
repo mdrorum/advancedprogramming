@@ -1,7 +1,7 @@
 # Lecture 15: Other languages
 
 - Other languages (and what they are good for)
-    - Python, Ruby and Lua
+    - Python, Ruby, Perl, PHP and Lua
         - dynamic languages
         - used for non-scripting tasks: webapps, desktop apps, prototyping...
         - bad performance (often acceptable for many purposes), high productivity

@@ -4,6 +4,8 @@
     - [Search trees](http://en.wikipedia.org/wiki/Tree_traversal)
     - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
     - [Ordering algorithms](http://en.wikipedia.org/wiki/Sorting_algorithm)
+        - [Quicksort](http://en.wikipedia.org/wiki/Quicksort)
+        - [Mergesort](http://en.wikipedia.org/wiki/Merge_sort)
     - [Evolutionary programming](http://en.wikipedia.org/wiki/Genetic_algorithm)
     - [Minimax](http://en.wikipedia.org/wiki/Minimax) and [alpha-beta prunning](http://en.wikipedia.org/wiki/Alpha-beta_pruning)
         - [Zero-sum games](http://en.wikipedia.org/wiki/Zero-sum_%28Game_theory%29)

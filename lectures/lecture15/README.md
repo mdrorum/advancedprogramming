@@ -33,7 +33,9 @@
 
 # Extended bibliography
 
+- [TIOBE](http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html)
 - [The Computer Language Benchmarks Game](http://benchmarksgame.alioth.debian.org/)
+- [Top Ten Most Popular Programming Languages 2013](http://bestteneverything.com/top-ten-most-popular-programming-languages-2013/)
 
 # Exercises
 
@@ -41,5 +43,4 @@
     - asks for the number of players
     - asks for the size of the field
     - runs a simulation with those parameters
-    - Use Qt or whatever other GUI framework you prefer
-
+    - You can use Qt or whatever other GUI framework you prefer

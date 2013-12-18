@@ -5,7 +5,7 @@
     - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
     - [Ordering algorithms](http://en.wikipedia.org/wiki/Sorting_algorithm)
         - [Quicksort](http://en.wikipedia.org/wiki/Quicksort)
-        - [Mergesort](http://en.wikipedia.org/wiki/Merge_sort)
+        - [Mergesort](http://en.wikipedia.org/wiki/Merge_sort), [example diagram](http://en.wikipedia.org/wiki/File:Merge_sort_algorithm_diagram.svg)
     - [Evolutionary programming](http://en.wikipedia.org/wiki/Genetic_algorithm)
     - [Minimax](http://en.wikipedia.org/wiki/Minimax) and [alpha-beta prunning](http://en.wikipedia.org/wiki/Alpha-beta_pruning)
         - [Zero-sum games](http://en.wikipedia.org/wiki/Zero-sum_%28Game_theory%29)
